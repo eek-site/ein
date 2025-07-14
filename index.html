@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN - Teleoperated Robot Services | ein.nz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2563eb;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+        }
+
+        .domain {
+            font-size: 0.8rem;
+            color: #6b7280;
+            font-weight: 400;
+            margin-top: -0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.25);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -8px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            letter-spacing: 0.2em;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Markets Section */
+        .markets {
+            padding: 6rem 0;
+            background: #f9fafb;
+        }
+
+        .markets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .market-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .market-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .market-flag {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .market-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+
+        .market-savings {
+            color: #059669;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .feature p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1f2937;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div>
+                <a href="/" class="logo">EIN</a>
+                <div class="domain">ein.nz</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#markets">Markets</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>EIN</h1>
+                <p class="hero-tagline">Teleoperated Robot Services</p>
+                <p class="hero-subtitle">Deploy advanced avatar robots operated by expert teams from Honduras. Revolutionary cost savings in high-labor markets while maintaining premium service quality.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">80%</span>
+                        <span class="stat-label">Cost Reduction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Operations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Markets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Robot Services</h2>
+                <p class="section-subtitle">Advanced teleoperated robots providing human presence and interaction for businesses worldwide</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Reception & Front Office</h3>
+                    <p>Professional reception services with multilingual capabilities. Greet visitors, manage appointments, and provide seamless front-office operations through advanced robot avatars.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛍️</div>
+                    <h3>Retail & Hospitality</h3>
+                    <p>Customer service excellence in stores, hotels, and restaurants. Provide personalized assistance, product information, and memorable customer experiences through robot operators.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏭</div>
+                    <h3>Warehouse & Logistics</h3>
+                    <p>Efficient inventory management, quality control, and logistics coordination. Reduce operational costs while maintaining precision in warehouse and distribution operations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>Healthcare Support</h3>
+                    <p>Non-clinical support services including patient guidance, visitor assistance, and administrative tasks in healthcare facilities requiring human interaction.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏫</div>
+                    <h3>Education & Campus</h3>
+                    <p>Campus guidance, student support, and administrative assistance in educational institutions. Bridge language barriers with multilingual robot operators.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Government & Public</h3>
+                    <p>Citizen services, information desks, and public assistance in government buildings and institutions with professional, courteous robot interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="markets" class="markets">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Target Markets</h2>
+                <p class="section-subtitle">Serving premium markets where labor costs are high and service quality is essential</p>
+            </div>
+            <div class="markets-grid">
+                <div class="market-card">
+                    <div class="market-flag">🇨🇭</div>
+                    <h3>Switzerland</h3>
+                    <p class="market-savings">Save 85% on labor</p>
+                </div>
+                <div class="market-card">
+                    <div class="market-flag">🇦🇪</div>
+                    <h3>UAE & Dubai</h3>
+                    <p class="market-savings">Save 75% on labor</p>
+                </div>
+                <div class="market-card">
+                    <div class="market-flag">🇺🇸</div>
+                    <h3>United States</h3>
+                    <p class="market-savings">Save 70% on labor</p>
+                </div>
+                <div class="market-card">
+                    <div class="market-flag">🇸🇬</div>
+                    <h3>Singapore</h3>
+                    <p class="market-savings">Save 80% on labor</p>
+                </div>
+                <div class="market-card">
+                    <div class="market-flag">🇳🇴</div>
+                    <h3>Norway</h3>
+                    <p class="market-savings">Save 90% on labor</p>
+                </div>
+                <div class="market-card">
+                    <div class="market-flag">🇦🇺</div>
+                    <h3>Australia</h3>
+                    <p class="market-savings">Save 75% on labor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How EIN Works</h2>
+                <p class="section-subtitle">Advanced teleoperated robots meet expert human operators</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🌎</div>
+                    <h3>Honduras Operations Center</h3>
+                    <p>Strategic location with optimal time zones for global operations. Highly skilled, multilingual workforce trained in advanced robot operation and premium customer service.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Advanced Robot Fleet</h3>
+                    <p>Cutting-edge teleoperated robots with human-like movement, speech, and interaction capabilities. Deploy anywhere in the world with instant connectivity.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>24/7 Operations</h3>
+                    <p>Round-the-clock service coverage with seamless operator transitions. Perfect time zone alignment ensures continuous operations while reducing costs.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Massive Cost Savings</h3>
+                    <p>70-90% reduction in operational expenses without compromising service quality. ROI typically achieved within 6-12 months of robot deployment.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Scalable Solutions</h3>
+                    <p>From single-robot pilots to full fleet deployments. Flexible service packages that grow with your business needs and expansion requirements.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Bank-grade security protocols, encrypted communications, and comprehensive data protection ensuring your operations remain secure and confidential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Deploy Robot Operations?</h2>
+            <p>Join leading companies revolutionizing their service delivery with teleoperated robots</p>
+            <div class="cta-buttons">
+                <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vMb_Yc7Zi0WBINMhh8N3DSnleyJD3nBGm0qPafV8nlFUNUgzODRVTTVRVFhDUVFMSzNSOUtKR0QwRi4u" class="btn-primary" target="_blank">
+                    Start Your Project
+                    <span>→</span>
+                </a>
+                <a href="#demo" class="btn-secondary">Watch Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EIN - ein.nz</h3>
+                    <p>Pioneering teleoperated robot services. Connecting global markets with expert operators through advanced avatar technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p><a href="#services">Reception & Front Office</a></p>
+                    <p><a href="#services">Retail & Hospitality</a></p>
+                    <p><a href="#services">Warehouse & Logistics</a></p>
+                    <p><a href="#services">Healthcare Support</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Markets</h3>
+                    <p><a href="#markets">Switzerland</a></p>
+                    <p><a href="#markets">UAE & Dubai</a></p>
+                    <p><a href="#markets">United States</a></p>
+                    <p><a href="#markets">Singapore</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vMb_Yc7Zi0WBINMhh8N3DSnleyJD3nBGm0qPafV8nlFUNUgzODRVTTVRVFhDUVFMSzNSOUtKR0QwRi4u" target="_blank">Contact Form</a></p>
+                    <p>Operations: Tegucigalpa, Honduras</p>
+                    <p>Service: 24/7 Global Coverage</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EIN (ein.nz). All rights reserved. | Teleoperated Robot Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.7,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalValue = stat.textContent;
+                        stat.textContent = '0';
+                        
+                        if (finalValue.includes('%')) {
+                            const num = parseInt(finalValue);
+                            animateNumber(stat, 0, num, '%');
+                        } else if (finalValue.includes('/')) {
+                            stat.textContent = finalValue;
+                        } else {
+                            const num = parseInt(finalValue);
+                            animateNumber(stat, 0, num, '+');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            observer.observe(heroStats);
+        }
+
+        function animateNumber(element, start, end, suffix = '') {
+            const duration = 2000;
+            const stepTime = 50;
+            const steps = duration / stepTime;
+            const increment = (end - start) / steps;
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, stepTime);
+        }
+    </script>
+</body>
+</html>
