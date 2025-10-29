@@ -43,9 +43,12 @@ font-src 'self' data:;">
     
     <style>
         :root {
-            --primary: #1e40af; /* Navy */
-            --primary-light: #1e3a8a;
-            --secondary: #0f172a; /* Deep navy */
+            --primary: #0D1B2A;
+            --primary-light: #1B2C40;
+            --primary-dark: #0A1521;
+            --secondary: #0D1B2A;
+            --brand: #0D1B2A;
+            --brand2: #102238;
             --success: #28a745;
             --warning: #ffc107;
             --info: #17a2b8;
@@ -424,7 +427,7 @@ font-src 'self' data:;">
                     </div>
                     <div class="trust-item">
                         <span class="trust-icon">⚡</span>
-                        <small>Fast Response</small>
+                        <small>Rapid Mobilisation</small>
                     </div>
                 </div>
                 <p><strong>Secure transfer in progress.</strong> You are being redirected to the appropriate service within the EEK Group.</p>
@@ -641,19 +644,19 @@ font-src 'self' data:;">
             if (path === '/find-me') {
                 return {
                     title: 'Location Services',
-                    description: 'Opening our secure location service to help us find you quickly for faster emergency response.'
+                    description: 'Opening our secure location service to enable rapid specialist mobilisation.'
                 };
             }
             if (path === '/rescue-me' || path === '/start') {
                 return {
                     title: 'Emergency Service Request',
-                    description: 'Taking you to our secure emergency booking system. Our dispatch team will contact you within minutes.'
+                    description: 'Taking you to our secure incident booking system. Our coordination team will confirm allocation promptly.'
                 };
             }
             if (path === '/customer-escalation' || path === '/dispute-form') {
                 return {
                     title: 'Customer Support',
-                    description: 'Connecting you to our customer care team. We\'re here to resolve any concerns quickly and fairly.'
+                    description: 'Connecting you to our customer care team. We resolve concerns through formal procedures.'
                 };
             }
             if (path === '/authorize' || path === '/third-party' || path.toLowerCase() === '/authorize' || path.toLowerCase() === '/third-party') {
@@ -671,7 +674,7 @@ font-src 'self' data:;">
             if (path === '/insurance-form') {
                 return {
                     title: 'Insurance Liaison & Claims',
-                    description: 'Taking you to our secure insurance claim consent form. We\'ll coordinate directly with your insurance provider for faster processing.'
+                    description: 'Taking you to our secure insurance claim consent form. We coordinate directly with your insurance provider for expedited processing.'
                 };
             }
             if (path === '/review-form') {
