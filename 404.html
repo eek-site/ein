@@ -1,15 +1,22 @@
-<!-- 
-Save this as "404.html" in your GitHub Pages repository root.
-GitHub Pages will automatically serve this for any 404 errors.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting... | Eek Mobile Mechanical</title>
+    <title>Redirecting... | EIN Fuel Extraction</title>
     
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.redditstatic.com https://googleads.g.doubleclick.net https://widget.reviewability.com;
+style-src 'self' 'unsafe-inline' https://widget.reviewability.com;
+img-src 'self' data: https: https://app.revu.cloud https://widget.reviewability.com;
+connect-src 'self' https://www.google-analytics.com https://www.redditstatic.com https://pixel-config.reddit.com https://conversions-config.reddit.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://www.google.hn https://app.revu.cloud https://widget.reviewability.com https://www.eek.nz https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com;
+frame-src 'self' https://td.doubleclick.net https://www.googletagmanager.com https://app.revu.cloud https://widget.reviewability.com;
+font-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
     <!-- Reddit Pixel -->
     <script>
         !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}
@@ -18,8 +25,44 @@ GitHub Pages will automatically serve this for any 404 errors.
         rdt('init', 'a2_hf16791nsdhx');
         rdt('track', 'PageVisit');
     </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17084465163"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17084465163');
+        gtag('config', 'G-DQNKF1YLWR');
+    </script>
     
     <style>
+        :root {
+            --primary: #dc3545;
+            --primary-light: #e74c3c;
+            --secondary: #ff5500;
+            --success: #28a745;
+            --warning: #ffc107;
+            --info: #17a2b8;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -27,47 +70,66 @@ GitHub Pages will automatically serve this for any 404 errors.
         }
         
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333;
+            color: var(--gray-800);
             padding: 20px;
         }
         
         .container {
             text-align: center;
-            max-width: 700px;
-            padding: 40px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
             width: 100%;
         }
-        
-        .logo {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333;
+
+        .header {
+            margin-bottom: 2rem;
         }
-        
-        .brand-tagline {
-            color: #666;
-            font-size: 1.1em;
-            margin-bottom: 30px;
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .brand-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .brand-info .tagline {
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
         }
         
         .spinner {
             width: 60px;
             height: 60px;
-            border: 4px solid #f5f5f5;
-            border-top: 4px solid #ff5500;
+            border: 4px solid var(--gray-200);
+            border-top: 4px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
+            margin: 2rem auto;
         }
         
         @keyframes spin {
@@ -76,38 +138,69 @@ GitHub Pages will automatically serve this for any 404 errors.
         }
         
         .message {
-            font-size: 1.2em;
-            margin: 20px 0;
-            color: #333;
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .service-info {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-info p {
+            font-size: 1.1rem;
+            opacity: 0.95;
         }
         
-        .countdown {
-            font-size: 2em;
-            font-weight: bold;
-            margin: 20px 0;
-            color: #ff5500;
+        .trust-indicators {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--gray-100);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--info);
         }
         
-        .manual-link {
-            margin-top: 30px;
+        .trust-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
         
-        .manual-link a, .cta-button {
-            background-color: #ff5500;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-size: 1.2em;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            display: inline-block;
-            transition: all 0.3s ease;
-            margin: 0 7px;
+        .trust-item {
+            text-align: center;
         }
         
-        .manual-link a:hover, .cta-button:hover {
-            background-color: #e64a00;
-            transform: translateY(-2px);
+        .trust-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .trust-item small {
+            color: var(--gray-600);
+            font-size: 0.85rem;
+        }
+        
+        .trust-indicators p {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--gray-700);
+            font-size: 0.9rem;
         }
         
         .error-container {
@@ -119,27 +212,30 @@ GitHub Pages will automatically serve this for any 404 errors.
         }
         
         .error-container h2 {
-            color: #333;
-            margin-bottom: 15px;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
         }
         
         .error-container p {
-            color: #666;
-            margin-bottom: 20px;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
         
         .suggestions {
-            margin-top: 30px;
+            margin: 2rem 0;
             text-align: left;
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 12px;
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
         }
         
         .suggestions h3 {
-            color: #333;
-            margin-bottom: 15px;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
             text-align: center;
+            font-size: 1.3rem;
         }
         
         .suggestions ul {
@@ -149,101 +245,197 @@ GitHub Pages will automatically serve this for any 404 errors.
         }
         
         .suggestions li {
-            margin: 10px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
         
         .suggestions li:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
             transform: translateY(-2px);
         }
         
         .suggestions a {
-            color: #333;
+            color: var(--dark);
             text-decoration: none;
             display: block;
         }
         
         .suggestions a strong {
-            color: #ff5500;
-            font-size: 1.1em;
+            color: var(--primary);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
         }
         
         .suggestions a small {
-            color: #666;
-            font-size: 0.9em;
+            color: var(--gray-600);
+            font-size: 0.9rem;
         }
         
         .suggestions a:hover strong {
-            color: #e64a00;
+            color: var(--primary-light);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #e64a00;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 20px;
-                margin: 10px;
+                padding: 2rem 1.5rem;
+                margin: 1rem;
             }
             
-            .logo {
-                font-size: 2em;
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .brand-info h1 {
+                font-size: 1.75rem;
             }
             
-            .manual-link a, .cta-button {
-                padding: 12px 20px;
-                font-size: 1.1em;
-                margin: 5px;
-                display: block;
+            .message {
+                font-size: 1.1rem;
+            }
+
+            .trust-grid {
+                gap: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
             }
             
             .suggestions {
-                padding: 15px;
+                padding: 1.5rem;
             }
             
             .suggestions li {
-                padding: 12px;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .brand-info h1 {
+                font-size: 1.5rem;
+            }
+
+            .trust-grid {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .service-info {
+                padding: 1rem;
+            }
+
+            .service-info h2 {
+                font-size: 1.3rem;
+            }
+
+            .service-info p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">🔧 Eek Mobile Mechanical</div>
-        <div class="brand-tagline">Looking for the page you requested...</div>
+        <div class="header">
+            <div class="logo-section">
+                <img src="brand-image.png" alt="EIN Fuel Extraction" class="logo">
+                <div class="brand-info">
+                    <h1>EIN Fuel Extraction</h1>
+                    <p class="tagline">Extract, Inspect, Neutralize</p>
+                </div>
+            </div>
+        </div>
         
         <div id="loadingContainer">
             <div class="spinner"></div>
-            <div class="message">Checking our redirect database</div>
-            <div class="countdown" id="countdown" style="display: none;">3</div>
+            <div class="message">Connecting you to the right service...</div>
             
-            <!-- Trust indicators -->
-            <div style="margin-top: 30px; padding: 20px; background: #f0f8ff; border-radius: 8px; border-left: 4px solid #007acc;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 1.5em; color: #007acc;">🔒</div>
-                        <small style="color: #666;">Secure Connection</small>
+            <div class="trust-indicators">
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <small>Secure Connection</small>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 1.5em; color: #28a745;">✅</div>
-                        <small style="color: #666;">Verified Service</small>
+                    <div class="trust-item">
+                        <span class="trust-icon">✅</span>
+                        <small>Verified Service</small>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 1.5em; color: #ff6b35;">⚡</div>
-                        <small style="color: #666;">Fast Response</small>
+                    <div class="trust-item">
+                        <span class="trust-icon">⚡</span>
+                        <small>Fast Response</small>
                     </div>
                 </div>
-                <p style="text-align: center; margin-top: 15px; color: #555; font-size: 0.9em;">
-                    <strong>Your safety is our priority.</strong> You're being connected to official Eek Mechanical services with bank-level security.
+                <p>
+                    <strong>Your safety is our priority.</strong> You're being connected to official EEK Mechanical services with bank-level security.
                 </p>
             </div>
         </div>
         
         <div id="errorContainer" class="error-container">
             <h2>Page Not Found</h2>
-            <p>We couldn't find the page you're looking for, and no redirect was configured for this URL.</p>
+            <p>We couldn't find the page you're looking for, but we can help you get to the right place.</p>
             
             <div class="suggestions">
                 <h3>🔧 Try These Popular Pages Instead:</h3>
@@ -252,33 +444,35 @@ GitHub Pages will automatically serve this for any 404 errors.
                 </ul>
             </div>
             
-            <div class="manual-link">
-                <a href="https://www.eek.nz" class="cta-button">🏠 Go to Homepage</a>
-                <a href="tel:0800769000" class="cta-button">📞 Call 0800 769 000</a>
+            <div class="cta-buttons">
+                <a href="https://www.eek.nz" class="btn btn-primary">🏠 Go to EEK Homepage</a>
+                <a href="tel:0800769000" class="btn btn-secondary">📞 Call 0800 769 000</a>
             </div>
         </div>
     </div>
 
     <script>
-        // REAL redirect database - keeps ALL internal redirects working
+        // Redirect database - all links now point to EEK site
         const redirectDatabase = {
+            // Main pages redirect to EEK
+            '/more-options': 'https://www.eek.nz/more-options',
+            '/privacy': 'https://www.eek.nz/privacy',
+            '/terms': 'https://www.eek.nz/terms',
+            '/supplier': 'https://www.eek.nz/supplier',
+            '/mjuris': 'https://www.eek.nz/mjuris',
+            '/thanks': 'https://www.eek.nz/thanks',
+            
             // Application and availability forms
             '/apply': 'https://forms.office.com/r/XLdGk4wDYY',
             '/availability': 'https://forms.office.com/r/jGgFgQUj0N',
             '/candidate': 'https://forms.office.com/r/EsHxc7mAb4',
             
             // Legal and policy documents
-            '/privacy': 'https://roadandrescue.sharepoint.com/:b:/s/rar/EWXiDhEQikFPtsjmoapkdWMBeytvuyMEsmlIchxhPdwyXg?e=YcldRN',
-            '/terms': 'https://roadandrescue.sharepoint.com/:b:/s/rar/EbMAsktroaFEkKbFZUeYxPgBm1SDkvxru4fVlG360u3i9w?e=1CDNtc',
             '/terms-of-service': 'https://roadandrescue.sharepoint.com/:b:/s/rar/EbMAsktroaFEkKbFZUeYxPgBm1SDkvxru4fVlG360u3i9w?e=1CDNtc',
-            
-            // Private pages (not shown in public suggestions)
-            '/thanks': 'https://www.eek.nz/thanks',
             
             // Supplier forms and pages
             '/supplier-relations': 'https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=vMb_Yc7Zi0WBINMhh8N3DSnleyJD3nBGm0qPafV8nlFUNjZUMFRNN0ZMQldGSDdYM0FYRDRLWEFVOS4u',
             '/supplier-terms': 'https://roadandrescue.sharepoint.com/:b:/s/rar/EVItR9WqSDBHpBgS4t5JFhQBLl0heypp7-CjIRgkV-4ytg?e=bajD4c',
-            '/supplier': 'https://www.eek.nz/supplier',
             
             // Customer support and escalation forms
             '/customer-escalation': 'https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=vMb_Yc7Zi0WBINMhh8N3DSnleyJD3nBGm0qPafV8nlFUQ0JBUlZHTDNBQkNESTBSTUJRWFFGTlZWRy4u',
@@ -306,10 +500,8 @@ GitHub Pages will automatically serve this for any 404 errors.
             '/cc': 'https://forms.office.com/Pages/ResponsePage.aspx?id=vMb_Yc7Zi0WBINMhh8N3DSnleyJD3nBGm0qPafV8nlFUOTk5T0ZQNzFUTFg0TUZMTk01WTlKVk8xMy4u',
             
             // Legal and utility redirects
-            '/mjuris': 'https://www.eek.nz/mjuris',
             '/map': 'https://www.google.com/maps/search/where+am+I',
             '/privacy-report': 'https://forms.office.com/Pages/ResponsePage.aspx?id=vMb_Yc7Zi0WBINMhh8N3DSnleyJD3nBGm0qPafV8nlFUMzRTVVRQQVVGN0s2QjRQTUVNOEVNR1QwOC4u',
-            '/more-options': 'https://www.eek.nz/more-options',
             
             // Case variations (common typos)
             '/Apply': 'https://forms.office.com/r/XLdGk4wDYY',
@@ -327,11 +519,9 @@ GitHub Pages will automatically serve this for any 404 errors.
         function handleRedirect() {
             const currentPath = window.location.pathname;
             
-            // Handle trackable URLs with dynamic job IDs - this creates a Power Automate run link
+            // Handle trackable URLs with dynamic job IDs
             if (currentPath.startsWith('/trackable/')) {
                 const jobId = currentPath.replace('/trackable/', '');
-                // This will redirect to Power Automate login if customer clicks it (they won't have access)
-                // But for internal staff, it goes directly to the workflow run
                 const powerAutomateUrl = `https://make.powerautomate.com/manage/environments/Default/flows/${jobId}`;
                 performRedirect(powerAutomateUrl, currentPath);
                 return;
@@ -366,14 +556,20 @@ GitHub Pages will automatically serve this for any 404 errors.
             let serviceInfo = getServiceInfo(url, originalPath);
             
             document.querySelector('.message').innerHTML = `
-                <strong style="color: #ff5500;">✅ ${serviceInfo.title}</strong><br>
+                <strong style="color: var(--primary);">✅ ${serviceInfo.title}</strong><br>
                 ${serviceInfo.description}
             `;
             
-            document.querySelector('.brand-tagline').innerHTML = 
-                'Securely connecting you to the right service...';
+            // Show service info
+            const serviceInfoDiv = document.createElement('div');
+            serviceInfoDiv.className = 'service-info';
+            serviceInfoDiv.innerHTML = `
+                <h2>${serviceInfo.title}</h2>
+                <p>${serviceInfo.description}</p>
+            `;
             
-            document.getElementById('countdown').style.display = 'none';
+            const loadingContainer = document.getElementById('loadingContainer');
+            loadingContainer.insertBefore(serviceInfoDiv, loadingContainer.querySelector('.trust-indicators'));
             
             // Show loading for a brief moment for UX, then redirect immediately
             setTimeout(() => {
@@ -384,7 +580,6 @@ GitHub Pages will automatically serve this for any 404 errors.
         function fireRedditPurchaseEvent() {
             try {
                 if (typeof rdt !== 'undefined') {
-                    // Track as a purchase/conversion event
                     rdt('track', 'Purchase', {
                         'customEventName': 'Job_Form_Access',
                         'currency': 'NZD',
@@ -393,15 +588,12 @@ GitHub Pages will automatically serve this for any 404 errors.
                         'value': 1
                     });
                     
-                    // Also track as a Lead event
                     rdt('track', 'Lead', {
                         'customEventName': 'Job_Form_Lead',
                         'eventSource': 'job_redirect'
                     });
                     
                     console.log('Reddit Pixel purchase event fired for /job');
-                } else {
-                    console.warn('Reddit Pixel not loaded when trying to fire purchase event');
                 }
             } catch (error) {
                 console.error('Error firing Reddit Pixel event:', error);
@@ -526,6 +718,12 @@ GitHub Pages will automatically serve this for any 404 errors.
                     description: 'Connecting you to our protected Microsoft Forms system for safe and secure information submission.'
                 };
             }
+            if (url.includes('eek.nz')) {
+                return {
+                    title: 'EEK Mechanical Services',
+                    description: 'Taking you to the main EEK Mechanical website for comprehensive mobile mechanical services.'
+                };
+            }
             // Default fallback
             return {
                 title: 'Connecting You Safely',
@@ -537,10 +735,10 @@ GitHub Pages will automatically serve this for any 404 errors.
             document.getElementById('loadingContainer').style.display = 'none';
             document.getElementById('errorContainer').classList.add('show');
             
-            // Generate public-facing suggestions - only show main pages, not internal forms or private pages
+            // Generate public-facing suggestions - all pointing to EEK site
             const suggestionsList = document.getElementById('suggestionsList');
             const suggestions = [
-                { url: 'https://www.eek.nz/', title: '🏠 Homepage', desc: 'Main Eek Mobile Mechanical website' },
+                { url: 'https://www.eek.nz/', title: '🏠 EEK Homepage', desc: 'Main EEK Mobile Mechanical website' },
                 { url: 'tel:0800769000', title: '📞 Call 0800 769 000', desc: 'Speak directly with our dispatch team' },
                 { url: 'https://www.eek.nz/more-options', title: '📋 More Options', desc: 'Complete directory of all services and forms' },
                 { url: 'https://www.eek.nz/supplier', title: '🤝 Supplier Portal', desc: 'Official supplier partnership portal' },
@@ -550,7 +748,7 @@ GitHub Pages will automatically serve this for any 404 errors.
             suggestionsList.innerHTML = suggestions.map(s => `
                 <li>
                     <a href="${s.url}">
-                        <strong>${s.title}</strong><br>
+                        <strong>${s.title}</strong>
                         <small>${s.desc}</small>
                     </a>
                 </li>
@@ -559,7 +757,7 @@ GitHub Pages will automatically serve this for any 404 errors.
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(handleRedirect, 800); // Slightly longer to show trust indicators
+            setTimeout(handleRedirect, 800);
         });
     </script>
 </body>
