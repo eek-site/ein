@@ -1138,15 +1138,35 @@ font-src 'self' data:;">
     </div>
   </div>
 
+  <!-- Forman Pacific Modal -->
+  <div id="forpacModal" class="modal">
+    <div class="modal-content" style="max-width:720px;">
+      <div class="modal-header">
+        <h2>Forman Pacific</h2>
+        <span class="close" onclick="closeForpacModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:1rem;">EIN Fuel Extraction is part of Forman Pacific, a New Zealand service coordination and claims management platform supporting incident response and supplier networks.</p>
+        <ul style="margin:0 0 1rem 1.2rem;">
+          <li>Claims and incident coordination</li>
+          <li>Verified supplier and operations network</li>
+          <li>Compliance and documentation standards</li>
+        </ul>
+        <a class="btn btn-outline" href="https://www.formanpacific.com" target="_blank" rel="noopener">Visit formanpacific.com</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2025 EIN Fuel Extraction (EEK Mechanical Ltd). All rights reserved.</p>
       <p style="margin-top: 8px; font-size: 0.875rem;">Company No: 9365185 | NZBN: 9429053064165</p>
       <div class="footer-links">
-        <a href="https://www.eek.nz/more-options">More Options</a>
-        <a href="https://www.eek.nz/privacy">Privacy Policy</a>
-        <a href="https://www.eek.nz/terms">Terms of Service</a>
+        <a href="https://www.formanpacific.com" target="_blank" rel="noopener">Forman Pacific</a>
+        <a href="https://www.formanpacific.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://www.formanpacific.com/terms" target="_blank" rel="noopener">Terms of Service</a>
+        <a href="#" id="openForpacModal">About Forman Pacific</a>
       </div>
     </div>
   </footer>
@@ -1436,11 +1456,25 @@ font-src 'self' data:;">
       document.body.style.overflow = '';
     }
 
+    // Forman Pacific Modal Controls
+    function openForpacModal(){
+      document.getElementById('forpacModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeForpacModal(){
+      document.getElementById('forpacModal').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
     // Close modal when clicking outside
     window.onclick = function(event) {
       const modal = document.getElementById('bookingModal');
+      const fpModal = document.getElementById('forpacModal');
       if (event.target === modal) {
         closeBookingModal();
+      }
+      if (event.target === fpModal) {
+        closeForpacModal();
       }
     }
 
@@ -1507,6 +1541,12 @@ font-src 'self' data:;">
       const gclid = getAndStoreGCLID();
       if (gclid) {
         console.log('GCLID detected:', gclid);
+      }
+
+      // Wire up Forman Pacific modal trigger
+      const openForpac = document.getElementById('openForpacModal');
+      if (openForpac) {
+        openForpac.addEventListener('click', function(e){ e.preventDefault(); openForpacModal(); });
       }
     });
   </script>
