@@ -27,8 +27,7 @@ font-src 'self' data:;">
 
   <!-- Reddit Pixel -->
   <script>
-    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}
-    (window,document);
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
     
     function getEmailFromForm() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -98,62 +97,20 @@ font-src 'self' data:;">
     gtag('config', 'G-DQNKF1YLWR');
   </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Eek Mobile Mechanical",
-    "description": "Mobile mechanic services across New Zealand. Pre purchase vehicle inspections, wrong fuel removal, petrol and diesel removal, emergency roadside repairs.",
-    "telephone": "+64800769000",
-    "url": "https://www.eek.nz",
-    "image": "https://www.eek.nz/brand-image.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "NZ"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "New Zealand"
-    },
-    "openingHours": [
-      "Mo 07:00-17:00",
-      "Tu 07:00-17:00", 
-      "We 07:00-17:00",
-      "Th 07:00-17:00",
-      "Fr 07:00-17:00",
-      "Sa 07:00-12:00",
-      "Su 07:00-12:00"
-    ],
-    "serviceType": [
-      "Mobile Mechanic",
-      "Pre Purchase Vehicle Inspections", 
-      "Wrong Fuel Removal",
-      "Petrol and Diesel Removal",
-      "Emergency Roadside Repairs",
-      "Battery Jump Start",
-      "Trailer Repairs"
-    ]
-  }
-  </script>
-
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
   <style>
     :root {
-      /* Brand Colors */
-      --primary: #ff5500;
-      --primary-light: #ff7733;
-      --primary-dark: #e04400;
-      --secondary: #28a745;
-      --secondary-light: #20c997;
-      --accent: #17a2b8;
-      --danger: #dc3545;
-      --warning: #ffc107;
+      --primary: #dc3545;
+      --primary-light: #e74c3c;
+      --secondary: #ff5500;
       --success: #28a745;
-      
-      /* Neutral Colors */
+      --warning: #ffc107;
+      --info: #17a2b8;
+      --light: #f8f9fa;
+      --dark: #343a40;
       --white: #ffffff;
-      --gray-50: #f8f9fa;
-      --gray-100: #f5f5f5;
+      --gray-100: #f8f9fa;
       --gray-200: #e9ecef;
       --gray-300: #dee2e6;
       --gray-400: #ced4da;
@@ -162,1680 +119,1014 @@ font-src 'self' data:;">
       --gray-700: #495057;
       --gray-800: #343a40;
       --gray-900: #212529;
-      
-      /* Typography */
-      --font-primary: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-      --font-heading: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-      
-      /* Spacing */
-      --space-xs: 0.25rem;
-      --space-sm: 0.5rem;
-      --space-md: 1rem;
-      --space-lg: 1.5rem;
-      --space-xl: 2rem;
-      --space-2xl: 3rem;
-      --space-3xl: 4rem;
-      
-      /* Border Radius */
-      --radius-sm: 0.375rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;
-      --radius-xl: 1rem;
-      --radius-2xl: 1.5rem;
-      
-      /* Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      
-      /* Transitions */
-      --transition-fast: 150ms ease-in-out;
-      --transition-normal: 300ms ease-in-out;
-      --transition-slow: 500ms ease-in-out;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --transition: all 0.3s ease;
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      font-family: var(--font-primary);
-      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
-      margin: 0;
-      padding: 0 0 80px 0;
-      color: var(--gray-800);
-      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    
-    /* Payment mode overrides */
-    body.payment-mode .sticky-call {
-      display: none !important;
-      visibility: hidden !important;
-    }
-    
-    body.payment-mode .normal-hours-only,
-    body.payment-mode .normal-hours-btn,
-    body.payment-mode .phone-link,
-    body.payment-mode .phone-display,
-    body.payment-mode header,
-    body.payment-mode .social-proof-box,
-    body.payment-mode #service-selection,
-    body.payment-mode #phonesBusyBanner {
-      display: none !important;
-    }
-    
-    /* Header Styles */
-    header {
-      background: var(--white);
-      padding: var(--space-2xl) var(--space-xl);
-      max-width: 1200px;
-      margin: 0 auto var(--space-xl);
-      border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-    }
-    
-    .business-name {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      color: var(--primary);
-      margin: var(--space-lg) 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-      letter-spacing: -0.02em;
-    }
-    
-    header img {
-      max-width: min(300px, 80vw);
-      height: auto;
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-md);
-      transition: transform var(--transition-normal);
-    }
-    
-    header img:hover {
-      transform: translateY(-2px);
-    }
-    
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
-      margin: var(--space-lg) 0 var(--space-md);
       color: var(--gray-800);
-      font-weight: 700;
-      line-height: 1.2;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
     }
-    
-    p.tagline {
-      font-size: clamp(1rem, 3vw, 1.3rem);
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-info h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .brand-info .tagline {
+      font-size: 0.9rem;
       color: var(--gray-600);
-      margin: 0;
       font-weight: 500;
     }
 
-    .after-hours-banner {
-      background: linear-gradient(135deg, #ff3333, #ff5500);
-      color: white;
-      padding: 20px;
-      margin: 0 auto 20px;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(255,51,51,0.3);
-      animation: pulse 2s infinite;
+    .contact-info {
+      text-align: right;
     }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 4px 12px rgba(255,51,51,0.3); }
-      50% { box-shadow: 0 4px 20px rgba(255,51,51,0.5); }
-    }
-
-    @keyframes pulse-green {
-      0%, 100% { box-shadow: 0 8px 24px rgba(40,167,69,0.4); }
-      50% { box-shadow: 0 8px 32px rgba(40,167,69,0.6); }
-    }
-
-    .after-hours-banner h2 {
-      margin: 0 0 10px 0;
-      font-size: 1.6em;
-    }
-
-    .after-hours-banner p {
-      margin: 10px 0;
-      font-size: 1.1em;
-    }
-
-    .emergency-btn {
-      display: inline-block;
-      background: rgba(255,255,255,0.25);
-      color: white;
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 1.3em;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 2px solid white;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .emergency-btn:hover {
-      background: white;
-      color: #ff3333;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    }
-
-
-    /* Call-to-Action Buttons */
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: var(--white);
-      padding: var(--space-lg) var(--space-2xl);
-      margin: var(--space-lg) auto;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      border-radius: var(--radius-xl);
-      text-decoration: none;
-      box-shadow: var(--shadow-lg);
-      transition: all var(--transition-normal);
+    .phone-number {
+      font-size: 1.5rem;
       font-weight: 700;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      min-width: 200px;
+      color: var(--primary);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.25rem;
     }
-    
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left var(--transition-slow);
+
+    .phone-number:hover {
+      color: var(--primary-light);
     }
-    
-    .cta-button:hover::before {
-      left: 100%;
+
+    .availability {
+      font-size: 0.85rem;
+      color: var(--success);
+      font-weight: 600;
     }
-    
-    .cta-button:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: var(--shadow-xl);
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+
+    /* Main Content */
+    .main-content {
+      padding: 3rem 0;
     }
-    
-    .cta-button:active {
-      transform: translateY(-2px) scale(1.02);
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
     }
-    
-    /* Service Sections */
-    .services {
-      background: var(--white);
-      margin: var(--space-xl) auto;
-      padding: var(--space-2xl);
-      border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-lg);
-      max-width: 1200px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .services::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-    }
-    
-    .services h2 {
-      color: var(--gray-800);
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
+
+    .hero-title {
+      font-size: 3rem;
       font-weight: 800;
-      margin: 0 0 var(--space-lg) 0;
+      color: var(--dark);
+      margin-bottom: 1rem;
       line-height: 1.2;
     }
-    
-    .services ul {
-      list-style: none;
-      padding: 0;
-      font-size: clamp(1rem, 2.5vw, 1.1rem);
-      margin: var(--space-lg) 0;
-    }
-    
-    .services li {
-      padding: var(--space-sm) 0;
+
+    .hero-subtitle {
+      font-size: 1.25rem;
       color: var(--gray-700);
-      line-height: 1.6;
-      position: relative;
-      padding-left: var(--space-lg);
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    
-    .services li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--secondary);
-      font-weight: bold;
-      font-size: 1.2em;
-    }
-    /* Service Selection Section */
-    .keywords-highlight {
+
+    .emergency-banner {
       background: linear-gradient(135deg, var(--primary), var(--primary-light));
       color: var(--white);
-      padding: var(--space-2xl);
-      margin: var(--space-xl) auto;
-      border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-xl);
-      max-width: 1200px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .keywords-highlight::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
-    }
-    
-    .keywords-highlight h2 {
-      margin: 0 0 var(--space-lg) 0;
-      color: var(--white);
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 800;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .keywords-highlight p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      margin: 0 0 var(--space-xl) 0;
-      opacity: 0.95;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .service-keywords {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-xl);
-      position: relative;
-      z-index: 1;
-    }
-    
-    .keyword-item {
-      background: rgba(255,255,255,0.15);
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-      backdrop-filter: blur(20px);
-      border: 2px solid rgba(255,255,255,0.2);
-      cursor: pointer;
-      transition: all var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .keyword-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left var(--transition-slow);
-    }
-    
-    .keyword-item:hover::before {
-      left: 100%;
-    }
-    
-    .keyword-item:hover {
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      border-color: rgba(255,255,255,0.4);
-    }
-    
-    .keyword-item h4 {
-      margin: 0 0 var(--space-md) 0;
-      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-      font-weight: 700;
-      color: var(--white);
-    }
-    
-    .keyword-item p {
-      margin: 0;
-      font-size: clamp(0.9rem, 2vw, 1rem);
-      opacity: 0.9;
-      color: var(--white);
-      line-height: 1.5;
-    }
-
-    .services [data-bid] {
-      max-height: 400px;
-      overflow-y: auto;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 15px;
-      background: #fafafa;
-      margin-top: 15px;
-    }
-
-    .services [data-bid] * {
-      max-width: 100% !important;
-      box-sizing: border-box;
-    }
-
-    footer {
-      font-size: 0.9em;
-      color: #999;
-      padding: 20px 0;
-    }
-    /* Sticky Call Button */
-    .sticky-call, .sticky-payment {
-      position: fixed;
-      bottom: var(--space-lg);
-      right: var(--space-lg);
-      background: linear-gradient(135deg, var(--primary), var(--primary-light));
-      color: var(--white);
-      font-size: clamp(1rem, 2.5vw, 1.1rem);
-      padding: var(--space-lg) var(--space-xl);
-      border-radius: 50px;
-      box-shadow: var(--shadow-xl);
-      text-decoration: none;
-      z-index: 999;
-      font-weight: 700;
-      transition: all var(--transition-normal);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    .sticky-call:hover, .sticky-payment:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    }
-    
-    .sticky-payment {
-      right: 200px;
-      display: none;
-      background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
-    }
-    
-    .sticky-payment:hover {
-      background: linear-gradient(135deg, var(--secondary-light), var(--secondary));
-    }
-
-    /* Book Now Urgent Styling */
-    .book-now-urgent {
-      background: linear-gradient(135deg, #28a745, #20c997) !important;
-      color: white !important;
-      padding: 18px 35px !important;
-      font-size: 1.3em !important;
-      border-radius: 12px !important;
-      text-decoration: none !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      gap: 12px !important;
-      box-shadow: 0 8px 24px rgba(40,167,69,0.4) !important;
-      font-weight: 800 !important;
-      animation: pulse-green 2s infinite !important;
-      border: 3px solid #fff !important;
-    }
-
-    .book-now-urgent:hover {
-      transform: translateY(-3px) !important;
-      box-shadow: 0 12px 32px rgba(40,167,69,0.5) !important;
-    }
-
-    /* Social Proof Section */
-    .social-proof-box {
-      background: linear-gradient(135deg, #fff8e1, #fff3cd);
-      border: 2px solid var(--warning);
-      padding: var(--space-2xl);
-      margin: var(--space-xl) auto;
-      max-width: 1200px;
-      border-radius: var(--radius-2xl);
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg);
+      margin-bottom: 3rem;
       box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .social-proof-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--warning), var(--primary));
     }
 
-    .social-proof-grid {
+    .emergency-banner h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .emergency-banner p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* Service Cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features li {
+      padding: 0.5rem 0;
+      color: var(--gray-700);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .service-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 3rem;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 4rem;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      cursor: pointer;
+      min-width: 200px;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: #e64a00;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Trust Indicators */
+    .trust-section {
+      background: var(--gray-100);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .trust-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-
-    .stat-big {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--primary);
-      font-weight: 900;
-      display: block;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-      line-height: 1;
-    }
-    
-    .social-proof-box h3 {
-      margin: 0 0 var(--space-lg) 0;
-      color: var(--gray-800);
-      font-size: clamp(1.3rem, 3vw, 1.6rem);
-      font-weight: 700;
-    }
-    
-    .social-proof-box .stat-item {
+      gap: 2rem;
       text-align: center;
-      padding: var(--space-lg);
-      background: rgba(255,255,255,0.7);
-      border-radius: var(--radius-lg);
-      transition: transform var(--transition-normal);
     }
-    
-    .social-proof-box .stat-item:hover {
-      transform: translateY(-4px);
+
+    .trust-item {
+      padding: 1rem;
     }
-    
-    .social-proof-box .stat-item span:last-child {
-      color: var(--gray-600);
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      font-weight: 600;
+
+    .trust-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
       display: block;
-      margin-top: var(--space-sm);
     }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      body {
-        padding: 0 0 100px 0;
-      }
-      
-      header {
-        margin: var(--space-md) var(--space-md) var(--space-lg);
-        padding: var(--space-xl) var(--space-lg);
-      }
-      
-      .service-keywords {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-      }
-      
-      .services, .keywords-highlight, .social-proof-box {
-        margin: var(--space-lg) var(--space-md);
-        padding: var(--space-xl);
-      }
-      
-      .sticky-call, .sticky-payment {
-        bottom: var(--space-md);
-        right: var(--space-md);
-        left: var(--space-md);
-        text-align: center;
-        border-radius: var(--radius-xl);
-      }
-      
-      .sticky-payment {
-        right: var(--space-md);
-        left: auto;
-      }
-      
-      .social-proof-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-md);
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .social-proof-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .sticky-call, .sticky-payment {
-        font-size: 0.9rem;
-        padding: var(--space-md) var(--space-lg);
-      }
+    .trust-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
     }
 
-    .debug-info {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 10px;
-      font-size: 12px;
-      border-radius: 5px;
-      z-index: 9999;
+    .trust-item p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    /* Booking Modal */
+    .modal {
       display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
     }
+
+    .modal-content {
+      background-color: var(--white);
+      margin: 5% auto;
+      padding: 0;
+      border-radius: var(--border-radius-lg);
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .close {
+      color: var(--white);
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    .close:hover {
+      opacity: 1;
+    }
+
+    .modal-body {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--gray-300);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* Sticky Elements */
+    .sticky-call {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sticky-call:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(220, 53, 69, 0.3);
+    }
+
+    .sticky-call.after-hours {
+      background: var(--success);
+    }
+
+    .sticky-call.after-hours:hover {
+      background: #218838;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-info {
+        text-align: center;
+      }
+
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .hero-title {
+        font-size: 1.75rem;
+      }
+
+      .cta-section {
+        padding: 2rem 1rem;
+      }
+
+      .modal-body {
+        padding: 1.5rem;
+      }
+
+      .sticky-call {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+      }
+    }
+
+    /* Loading States */
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .spinner {
+      border: 3px solid var(--gray-300);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Utility Classes */
+    .text-center { text-align: center; }
+    .text-primary { color: var(--primary); }
+    .text-success { color: var(--success); }
+    .text-warning { color: var(--warning); }
+    .text-muted { color: var(--gray-600); }
+    .mb-0 { margin-bottom: 0; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mt-0 { margin-top: 0; }
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mt-4 { margin-top: 2rem; }
   </style>
 </head>
+
 <body>
-
-<!-- Debug Info Panel -->
-<div class="debug-info" id="debugInfo">
-  <div>System Status: <span id="debugSystemStatus">Checking...</span></div>
-  <div>Business Hours: <span id="debugBusinessHours">Checking...</span></div>
-  <div>Current Time: <span id="debugCurrentTime"></span></div>
-  <div>Payment Token: <span id="debugPaymentToken">No</span></div>
-</div>
-
-<!-- Business Closed Banner -->
-<div id="closedBanner" class="after-hours-banner" style="display: none; background: linear-gradient(135deg, #666, #888);">
-  <h2 id="closedTitle">🕐 CURRENTLY CLOSED</h2>
-  <div id="afterHoursMessage">
-    <p><strong>Business Hours:</strong></p>
-    <p>Monday - Friday: 7:00 AM - 5:00 PM</p>
-    <p>Saturday - Sunday: 7:00 AM - 12:00 PM</p>
-    <p>Book online now for next available service</p>
-  </div>
-  <div id="tempUnavailableMessage" style="display: none;">
-    <div style="background:rgba(255,255,255,0.2);padding:20px;border-radius:12px;margin:15px 0;">
-      <h3 style="margin:0 0 15px 0;font-size:1.5em;">📱 Lines Busy - Book Online Instead</h3>
-      <p style="font-size:1.2em;margin:12px 0;"><strong>All mechanics currently on emergency calls</strong></p>
-      <p style="font-size:1.15em;margin:10px 0;">✅ Book online now - next mechanic dispatched to you</p>
-      <p style="font-size:1.15em;margin:10px 0;">✅ Skip the phone queue completely</p>
-      <p style="font-size:1.15em;margin:10px 0;">✅ <strong>Lock in your time slot before they fill up</strong></p>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="brand-image.png" alt="EIN Fuel Extraction" class="logo">
+          <div class="brand-info">
+            <h1>EIN Fuel Extraction</h1>
+            <p class="tagline">Extract, Inspect, Neutralize</p>
+          </div>
+        </div>
+        <div class="contact-info">
+          <a href="tel:0800769000" class="phone-number" onclick="trackConversion('header_call', 'Contact')">0800 769 000</a>
+          <p class="availability">24/7 Emergency Service</p>
+        </div>
+      </div>
     </div>
-    <a href="#service-selection" class="emergency-btn" style="background:#28a745;font-size:1.5em;padding:20px 40px;margin-top:15px;border:3px solid white;animation:pulse-green 2s infinite;">
-      📅 BOOK YOUR SLOT NOW
-    </a>
-    <p style="margin-top:20px;font-size:1.1em;opacity:0.95;"><strong>Most bookings completed in under 2 minutes</strong></p>
-  </div>
-</div>
+  </header>
 
-<section id="stripePaymentBlock" style="display: none; background-color: #ffffff; padding: 20px; text-align: center; color: #333; border-bottom: 2px solid #ff5500;">
-  <div style="background-color: #f5f5f5; padding: 30px; border-radius: 12px; max-width: 700px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-    <h1 style="font-size: 2.2em; margin-bottom: 0.5em;">Secure Roadside Payment</h1>
-    <p style="font-size: 1.2em; margin-bottom: 1.5em;">Confirm your payment to get help on the way — fast, safe, and secure.</p>
-    <label style="font-size: 1.1em; display: inline-flex; align-items: center; gap: 10px; color: #333;">
-      <input type="checkbox" id="termsCheckbox" style="transform: scale(1.5);" />
-      <span>I agree to the Eek Mobile Mechanical terms of service 
-        <a href="https://www.eek.nz/terms" target="_blank" style="color: #ff5500; text-decoration: underline;">
-          View terms of use
-        </a>
-      </span>
-    </label>
-    <br><br>
-    <button id="payNowButton" style="display: none; background-color: #ff5500; color: white; padding: 14px 32px; font-size: 1.2em; border: none; border-radius: 8px; cursor: pointer;">
-      Pay Now
-    </button>
-  </div>
-</section>
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <h1 class="hero-title">Wrong Fuel Emergency?</h1>
+        <p class="hero-subtitle">Don't start your engine! EIN Fuel Extraction provides professional wrong fuel recovery across New Zealand. We extract contaminated fuel, inspect for damage, and neutralize risk - keeping you safe and your engine protected.</p>
+      </section>
 
-<header>
-  <img src="brand-image.png" alt="EIN Fuel Extraction - Emergency Wrong Fuel Recovery" />
-  <div class="business-name">EIN Fuel Extraction</div>
-  <h1>EIN Fuel Extraction - Extract, Inspect, Neutralize</h1>
-  <p class="tagline">Emergency wrong fuel recovery across New Zealand. We extract contaminated fuel, inspect damage, and neutralize risk.</p>
-  <p style="font-size:0.9em;color:#666;margin-top:10px;">EIN Fuel Extraction is a specialized brand of EEK Mechanical Ltd</p>
-</header>
+      <!-- Emergency Banner -->
+      <section class="emergency-banner">
+        <h2>⚠️ DON'T START YOUR CAR</h2>
+        <p>Starting your engine with wrong fuel can cause thousands in damage. Call EIN immediately for professional fuel extraction service.</p>
+      </section>
 
+      <!-- Services Grid -->
+      <section class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">⛽</span>
+          <h3>Extract</h3>
+          <p>Professional fuel contamination removal using specialized equipment</p>
+          <ul class="service-features">
+            <li>Complete fuel system drainage</li>
+            <li>Contaminated fuel disposal</li>
+            <li>System flushing and cleaning</li>
+          </ul>
+        </div>
 
-<!-- Phones Busy Banner -->
-<div id="phonesBusyBanner" style="display:none;position:sticky;top:0;background:linear-gradient(135deg,#28a745,#20c997);color:#fff;padding:18px;text-align:center;z-index:998;box-shadow:0 4px 12px rgba(40,167,69,0.3);">
-  <strong style="font-size:1.3em;">📱 All lines busy - All fuel extraction specialists currently dispatched</strong>
-  <span style="margin:0 15px;">→</span>
-  <a href="#service-selection" style="background:rgba(255,255,255,0.3);color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:800;border:2px solid white;font-size:1.1em;">
-    📅 Book Online Now - Skip the Queue
+        <div class="service-card">
+          <span class="service-icon">🔍</span>
+          <h3>Inspect</h3>
+          <p>Comprehensive fuel system damage assessment and reporting</p>
+          <ul class="service-features">
+            <li>Fuel system inspection</li>
+            <li>Damage assessment report</li>
+            <li>Repair recommendations</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🛡️</span>
+          <h3>Neutralize</h3>
+          <p>Risk mitigation and system protection to prevent further damage</p>
+          <ul class="service-features">
+            <li>System protection treatment</li>
+            <li>Preventive measures</li>
+            <li>Safety recommendations</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <h2 class="cta-title">Get Professional Help Now</h2>
+        <p class="cta-subtitle">Most jobs dispatched in under 30 minutes. Comprehensive service is cheaper than engine damage.</p>
+        
+        <div class="cta-buttons">
+          <a href="tel:0800769000" class="btn btn-primary" onclick="trackConversion('fuel_drain_call', 'Contact')">
+            📞 Call Now - 0800 769 000
+          </a>
+          <button class="btn btn-secondary" onclick="openBookingModal()">
+            📅 Book Online
+          </button>
+        </div>
+
+        <p class="text-muted">Available 24/7 across New Zealand • Fully Insured • Professional Service</p>
+      </section>
+
+      <!-- Trust Indicators -->
+      <section class="trust-section">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <span class="trust-icon">🏆</span>
+            <h4>Professional Service</h4>
+            <p>Certified technicians with specialized equipment</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">🛡️</span>
+            <h4>Fully Insured</h4>
+            <p>Comprehensive insurance coverage for your peace of mind</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">⚡</span>
+            <h4>Fast Response</h4>
+            <p>Most jobs dispatched within 30 minutes</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">🇳🇿</span>
+            <h4>Nationwide Coverage</h4>
+            <p>Service available across New Zealand</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Sticky Call Button -->
+  <a href="tel:0800769000" class="sticky-call normal-hours-only" onclick="trackConversion('sticky_call', 'Contact')" id="stickyCallButton">
+    📞 Call Now
   </a>
-</div>
+  <a href="#booking" class="sticky-call after-hours" id="stickyClosedButton" style="display: none;" onclick="openBookingModal()">
+    📅 Book Online
+  </a>
 
-<!-- Social Proof -->
-<div class="social-proof-box">
-  <h3 style="margin:0 0 15px 0;color:#856404;font-size:1.4em;">✅ New Zealand's Fastest Mobile Mechanics</h3>
-  <div class="social-proof-grid">
-    <div>
-      <span class="stat-big">150+</span>
-      <span style="color:#666;font-size:1.1em;">Emergency calls this week</span>
-    </div>
-    <div>
-      <span class="stat-big">97%</span>
-      <span style="color:#666;font-size:1.1em;">First-call resolution</span>
-    </div>
-    <div>
-      <span class="stat-big">4.9★</span>
-      <span style="color:#666;font-size:1.1em;">Customer rating</span>
-    </div>
-    <div>
-      <span class="stat-big">&lt;30min</span>
-      <span style="color:#666;font-size:1.1em;">Most jobs dispatched</span>
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Book Fuel Extraction Service</h2>
+        <span class="close" onclick="closeBookingModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="customerName">Your Name *</label>
+            <input type="text" id="customerName" name="customerName" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="customerPhone">Phone Number *</label>
+              <input type="tel" id="customerPhone" name="customerPhone" required>
+            </div>
+            <div class="form-group">
+              <label for="customerEmail">Email Address</label>
+              <input type="email" id="customerEmail" name="customerEmail">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceLocation">Service Location *</label>
+            <input type="text" id="serviceLocation" name="serviceLocation" placeholder="Enter your address, suburb, or region" required>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleDetails">Vehicle Details *</label>
+            <input type="text" id="vehicleDetails" name="vehicleDetails" placeholder="Year, Make, Model (e.g., 2020 Toyota Corolla)" required>
+          </div>
+
+          <div class="form-group">
+            <label for="fuelType">Wrong Fuel Type *</label>
+            <select id="fuelType" name="fuelType" required>
+              <option value="">Select fuel type</option>
+              <option value="petrol-in-diesel">Petrol in Diesel Vehicle</option>
+              <option value="diesel-in-petrol">Diesel in Petrol Vehicle</option>
+              <option value="unknown">Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="urgency">Service Urgency *</label>
+            <select id="urgency" name="urgency" required>
+              <option value="">Select urgency</option>
+              <option value="emergency">Emergency - Within 1 hour</option>
+              <option value="urgent">Urgent - Within 2-4 hours</option>
+              <option value="standard">Standard - Next available slot</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="additionalInfo">Additional Information</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any additional details about your situation..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Submit Booking Request
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="keywords-highlight" id="service-selection">
-  <h2>🔧 Choose Your Emergency Service</h2>
-  <p>Fast mobile mechanic dispatch across all of New Zealand</p>
-  <div class="service-keywords">
-    <a href="#mobile-mechanic-breakdown" style="text-decoration: none; color: inherit;">
-      <div class="keyword-item" data-service="emergency_breakdown">
-        <h4>🚨 Emergency Breakdown</h4>
-        <p>Most jobs dispatched in under 30 minutes</p>
+  <!-- Footer -->
+  <footer style="background: var(--dark); color: var(--white); padding: 2rem 0; margin-top: 4rem;">
+    <div class="container">
+      <div style="text-align: center;">
+        <p>&copy; 2025 EIN Fuel Extraction (EEK Mechanical Ltd). All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Company No: 9365185 | NZBN: 9429053064165</p>
+        <div style="margin-top: 1rem;">
+          <a href="/more-options" style="color: var(--white); text-decoration: none; margin: 0 1rem;">More Options</a>
+          <a href="/privacy" style="color: var(--white); text-decoration: none; margin: 0 1rem;">Privacy Policy</a>
+          <a href="/terms" style="color: var(--white); text-decoration: none; margin: 0 1rem;">Terms of Service</a>
+        </div>
       </div>
-    </a>
-    <a href="#battery-jump-start" style="text-decoration: none; color: inherit;">
-      <div class="keyword-item" data-service="battery_jumpstart">
-        <h4>🔋 Dead Battery</h4>
-        <p>Jump start service - fast dispatch</p>
-      </div>
-    </a>
-    <a href="#wrong-fuel-removal" style="text-decoration: none; color: inherit;">
-      <div class="keyword-item" data-service="wrong_fuel">
-        <h4>⛽ Wrong Fuel Emergency</h4>
-        <p>DON'T START - we'll fix it fast</p>
-      </div>
-    </a>
-    <a href="#pre-purchase-inspections" style="text-decoration: none; color: inherit;">
-      <div class="keyword-item" data-service="pre_purchase">
-        <h4>🔍 Pre-Purchase Inspection</h4>
-        <p>Same-day service - 600+ workshops nationwide</p>
-      </div>
-    </a>
-  </div>
-</div>
+    </div>
+  </footer>
 
-
-
-<div class="services" id="wrong-fuel-rescue">
-  <h2>⛽ EIN Fuel Extraction - Extract, Inspect, Neutralize</h2>
-  <p style="color:#dc3545;font-weight:800;margin:15px 0;font-size:1.3em;">⚠️ DON'T START YOUR CAR - Call EIN immediately</p>
-  <p style="font-size:1.15em;line-height:1.6;">Put the wrong fuel in? Don't panic. EIN Fuel Extraction provides comprehensive wrong fuel recovery: we extract contaminated fuel, inspect for damage, and neutralize risk on-site.</p>
-  <ul style="text-align:left;max-width:600px;margin:20px auto;">
-    <li>⛽ <strong>Extract</strong> - Professional fuel contamination removal</li>
-    <li>🔍 <strong>Inspect</strong> - Complete fuel system damage assessment</li>
-    <li>🛡️ <strong>Neutralize</strong> - Risk mitigation and system protection</li>
-    <li>📍 Emergency fuel extraction anywhere in NZ</li>
-    <li>⚡ <strong>Priority dispatch for wrong fuel emergencies</strong></li>
-    <li>💰 <strong>Comprehensive service - cheaper than engine damage</strong></li>
-  </ul>
-  <p style="color:#dc3545;font-weight:800;margin:15px 0;font-size:1.3em;">⚡ Most jobs dispatched in under 30 minutes</p>
-  
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px;">
-    <a id="fuel-drain-call-btn" class="cta-button normal-hours-btn" href="javascript:void(0)" onclick="openServiceModal(); trackConversion('fuel_drain_call', 'Contact')" style="font-size:1.4em;padding:18px 35px;">
-      📞 CALL NOW
-    </a>
-    <button class="more-info-btn" onclick="openMoreModal('fuel')" style="background: #6c757d; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1em; cursor: pointer; margin-left: 10px;">
-      ℹ️ More Info
-    </button>
-  </div>
-</div>
-
-
-<!-- Customer Reviews Section -->
-<div class="services">
-  <h2>⭐ What Customers Say</h2>
-  <p>Real, verified reviews from clients across New Zealand.</p>
-  
+  <!-- Reviews Widget -->
   <div data-bid="157676" data-url="https://app.revu.cloud" data-aid="23788">
     <script src="https://widget.reviewability.com/js/widgetAdv.min.js" async></script>
   </div>
-</div>
 
-<a id="stripePaymentSticky" class="sticky-payment" href="#">💳 Make Payment</a>
+  <script>
+    // === TRACKING AND API FUNCTIONALITY ===
+    // Preserve all existing tracking, phone logic, and API calls
 
-<footer>
-  &copy; 2025 Eek Mobile Mechanical. All rights reserved. | 
-  <a href="https://www.eek.nz/privacy" target="_blank" style="color: #666; text-decoration: underline;">Privacy Policy</a> | 
-  <a href="/more-options" class="more-options-link" style="color: #666; text-decoration: underline;">More Options</a>
-</footer>
-
-<a class="sticky-call phone-link normal-hours-only" href="tel:0800769000" onclick="trackConversion('sticky_call', 'Contact')" id="stickyCallButton">
-  📞 Call <span class="phone-display">Now</span>
-</a>
-<a class="sticky-call" href="#service-selection" id="stickyClosedButton" style="display: none; background: #28a745;">📅 Book Now</a>
-
-<script>
-// CENTRALIZED GCLID EXTRACTION UTILITY
-function extractGCLID(urlParams) {
-  return urlParams.get('gclid') || urlParams.get('gbraid') || urlParams.get('wbraid') || null;
-}
-
-// IMMEDIATE FIRST VISIT TRACKING - NO DEPENDENCIES
-(function() {
-  const FIRST_VISIT_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f31c90260554c5a9d6dcffec47bc6c2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ou7iqzZ1YI2PzT_9X-M6PT5iVo2QRboWnFZrO3IBOL4";
-  const GCLID_STATE_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/5f20c5153e8a4de0be50a17e2dab4254/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zw5-_6YSCNPb2cfjjfa0Oj_Fpc7N9rhHfc6fPZZhX7g";
-  const CALLFLOW_STATE_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/17b1d2990e6f4082a2b0d9c2f1a29025/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=bPyoxJ24kuxJZOyLGAclGaEuH6BHwUTFaGmYOwHofa8";
-  
-  console.log('🔥 FIRST VISIT SCRIPT EXECUTING IMMEDIATELY');
-  
-  if (sessionStorage.getItem("eek_first_visit_sent") === "1") {
-    console.log('❌ First visit already sent this session');
-    return;
-  }
-  
-  let sessionId = localStorage.getItem("eek_session_id");
-  if (!sessionId) {
-    sessionId = "session_" + Date.now() + "_" + Math.random().toString(36).slice(2, 11);
-    localStorage.setItem("eek_session_id", sessionId);
-    console.log('✅ Created new session ID:', sessionId);
-  } else {
-    console.log('✅ Using existing session ID:', sessionId);
-  }
-  
-  const urlParams = new URLSearchParams(location.search);
-  let gclid = extractGCLID(urlParams);
-  if (gclid) {
-    localStorage.setItem("eek_gclid", gclid);
-    localStorage.setItem("eek_gclid_timestamp", new Date().toISOString());
-    console.log('✅ GCLID/GBRAID/WBRAID captured and stored:', gclid);
-  } else {
-    gclid = localStorage.getItem("eek_gclid");
-    console.log('📋 Using stored GCLID:', gclid);
-  }
-  
-  async function getStateData() {
-    const states = {
-      gclidState: null,
-      callflowState: null
-    };
-    
-    try {
-      console.log('🔄 Fetching GCLID state...');
-      const gclidResponse = await fetch(GCLID_STATE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-        cache: "no-store"
-      });
+    // Session and GCLID Management
+    function getOrCreateSessionId() {
+      let sid = localStorage.getItem("eek_session_id");
       
-      if (gclidResponse.ok) {
-        const gclidData = await gclidResponse.json();
-        states.gclidState = gclidData.state || gclidData;
-        console.log('✅ GCLID state received:', states.gclidState);
-      } else {
-        console.warn('⚠️ GCLID state API error:', gclidResponse.status);
-      }
-    } catch (error) {
-      console.error('❌ GCLID state fetch error:', error);
-    }
-    
-    try {
-      console.log('🔄 Fetching Callflow state...');
-      const callflowResponse = await fetch(CALLFLOW_STATE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-        cache: "no-store"
-      });
-      
-      if (callflowResponse.ok) {
-        const callflowData = await callflowResponse.json();
-        states.callflowState = callflowData.state || callflowData;
-        console.log('✅ Callflow state received:', states.callflowState);
-      } else {
-        console.warn('⚠️ Callflow state API error:', callflowResponse.status);
-      }
-    } catch (error) {
-      console.error('❌ Callflow state fetch error:', error);
-    }
-    
-    return states;
-  }
-  
-  getStateData().then(states => {
-    const payload = {
-      eventType: "session_started",
-      timestamp: new Date().toISOString(),
-      sessionId: sessionId,
-      gclid: gclid,
-      gclidState: states.gclidState,
-      callflowState: states.callflowState,
-      site: {
-        domain: location.hostname,
-        url: location.href,
-        path: location.pathname,
-        query: location.search ? location.search.slice(1) : "",
-        title: document.title,
-        referrer: document.referrer || null
-      },
-      utm: {
-        source: urlParams.get("utm_source") || null,
-        medium: urlParams.get("utm_medium") || null,
-        campaign: urlParams.get("utm_campaign") || null,
-        term: urlParams.get("utm_term") || null,
-        content: urlParams.get("utm_content") || null,
-        gclid: gclid,
-        msclkid: urlParams.get("msclkid") || null,
-        fbclid: urlParams.get("fbclid") || null,
-        rdtclid: urlParams.get("rdtclid") || null
-      },
-      device: {
-        userAgent: navigator.userAgent,
-        platform: navigator.platform || null,
-        language: navigator.language || null,
-        mobile: /Mobi|Android/i.test(navigator.userAgent),
-        screen: {
-          width: (window.screen && window.screen.width) || null,
-          height: (window.screen && window.screen.height) || null,
-          pixelRatio: window.devicePixelRatio || 1
+      if (!sid) {
+        const urlParams = new URLSearchParams(window.location.search);
+        sid = urlParams.get('session_id');
+        
+        if (sid) {
+          localStorage.setItem("eek_session_id", sid);
+        } else {
+          sid = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem("eek_session_id", sid);
         }
       }
-    };
-    
-    console.log('🚀 SENDING FIRST VISIT WEBHOOK WITH STATE DATA:', payload);
-    
-    fetch(FIRST_VISIT_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      keepalive: true,
-      cache: "no-store"
-    }).then(response => {
-      console.log('✅ FIRST VISIT WEBHOOK SUCCESS:', response.status, response.statusText);
-      if (response.ok) {
-        sessionStorage.setItem("eek_first_visit_sent", "1");
-        console.log('✅ Marked as sent for this session');
-      } else {
-        console.error('❌ FIRST VISIT WEBHOOK FAILED:', response.status);
-      }
-    }).catch(error => {
-      console.error('❌ FIRST VISIT WEBHOOK ERROR:', error);
-    });
-  });
-})();
-
-/* ------------ STATE CACHE + POLLER (single source of truth) ------------ */
-window.eek_states = { gclidState: null, callflowState: null, lastFetched: 0 };
-let eekStatesFetchPromise = null;
-
-// Define URLs (top-level for reuse)
-const EEK_GCLID_STATE_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/5f20c5153e8a4de0be50a17e2dab4254/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zw5-_6YSCNPb2cfjjfa0Oj_Fpc7N9rhHfc6fPZZhX7g";
-const EEK_CALLFLOW_STATE_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/17b1d2990e6f4082a2b0d9c2f1a29025/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=bPyoxJ24kuxJZOyLGAclGaEuH6BHwUTFaGmYOwHofa8";
-
-async function fetchStatesOnce(force = false) {
-  const now = Date.now();
-  if (!force && eekStatesFetchPromise) return eekStatesFetchPromise;
-  if (!force && now - (window.eek_states.lastFetched || 0) < 30_000) {
-    return window.eek_states;
-  }
-
-  eekStatesFetchPromise = (async () => {
-    let gclidState = window.eek_states.gclidState;
-    let callflowState = window.eek_states.callflowState;
-
-    try {
-      const [gclidResp, callflowResp] = await Promise.all([
-        fetch(EEK_GCLID_STATE_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}), cache: "no-store" }),
-        fetch(EEK_CALLFLOW_STATE_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}), cache: "no-store" })
-      ]);
-
-      if (gclidResp.ok) {
-        const j = await gclidResp.json();
-        gclidState = (j && (j.state ?? j)) || null;
-      }
-      if (callflowResp.ok) {
-        const j = await callflowResp.json();
-        callflowState = (j && (j.state ?? j)) || null;
-      }
-    } catch (_) { /* keep previous values on failure */ }
-
-    window.eek_states = { gclidState, callflowState, lastFetched: Date.now() };
-    eekStatesFetchPromise = null;
-    return window.eek_states;
-  })();
-
-  return eekStatesFetchPromise;
-}
-
-function startStatePoller(intervalMs = 300_000) {
-  fetchStatesOnce(true).then(() => {
-    document.dispatchEvent(new CustomEvent("eek:state:update", { detail: window.eek_states }));
-  });
-  setInterval(async () => {
-    await fetchStatesOnce(true);
-    document.dispatchEvent(new CustomEvent("eek:state:update", { detail: window.eek_states }));
-  }, intervalMs);
-}
-
-// Dynamic phone number based on traffic source
-function getDisplayPhoneNumber() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const gclid = extractGCLID(urlParams);
-  
-  if (gclid) {
-    localStorage.setItem('eek_phone_preference', 'tracking');
-    return {
-      tel: 'tel:0800447153',
-      display: '0800 447 153'
-    };
-  }
-  
-  localStorage.setItem('eek_phone_preference', 'default');
-  return {
-    tel: 'tel:0800769000', 
-    display: '0800 769 000'
-  };
-}
-
-// Build tracking parameters for service URLs
-function buildTrackingParams() {
-  const params = new URLSearchParams();
-  const urlParams = new URLSearchParams(window.location.search);
-  
-  const token = urlParams.get('token');
-  if (token) params.set('token', token);
-  
-  const gclid = extractGCLID(urlParams);
-  if (gclid) params.set('gclid', gclid);
-  
-  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
-    const value = urlParams.get(param);
-    if (value) params.set(param, value);
-  });
-  
-  const sessionId = localStorage.getItem("eek_session_id");
-  if (sessionId) params.set('session_id', sessionId);
-  
-  return params.toString();
-}
-
-// Update service links with tracking parameters
-function updateServiceLinks() {
-  const trackingParams = buildTrackingParams();
-  
-  document.querySelectorAll('.service-link').forEach(link => {
-    const service = link.dataset.service;
-    if (service) {
-      const baseUrl = `/book-service?service=${service}`;
-      const fullUrl = trackingParams ? `${baseUrl}&${trackingParams}` : baseUrl;
       
-      if (link.classList.contains('after-hours-btn') || link.closest('#winz-assistance') || link.getAttribute('href') === '#service-selection') {
-        link.href = fullUrl;
-      } else {
-        link.dataset.bookingUrl = fullUrl;
-      }
+      return sid;
     }
-  });
-  
-  const moreOptionsLink = document.querySelector('.more-options-link, a[href*="more-options"]');
-  if (moreOptionsLink) {
-    const baseUrl = '/more-options';
-    const fullUrl = trackingParams ? `${baseUrl}?${trackingParams}` : baseUrl;
-    moreOptionsLink.href = fullUrl;
-    console.log('🔗 More Options link updated:', fullUrl);
-  }
-  
-  console.log('🔗 Service links updated with tracking parameters:', trackingParams);
-}
 
-// Handle service selection card clicks
-function handleServiceSelection() {
-  document.querySelectorAll('.service-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        console.log('🔗 Scrolling to anchor:', href);
-        return;
-      }
-      const bookingUrl = this.dataset.bookingUrl;
-      if (bookingUrl) {
-        e.preventDefault();
-        console.log('🎯 Redirecting to booking page:', bookingUrl);
-        
-        // Track the booking click
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'book_now_click', {
-            'event_category': 'Booking',
-            'event_label': this.dataset.service || 'unknown',
-            'value': 1
-          });
-        }
-        
-        if (typeof rdt !== 'undefined') {
-          rdt('track', 'Custom', {
-            'customEventName': 'Book_Now_Click',
-            'serviceType': this.dataset.service || 'unknown'
-          });
-        }
-        
-        window.location.href = bookingUrl;
-      }
-    });
-  });
-}
-
-// Track orange box service selection clicks
-function trackServiceSelection() {
-  const SERVICE_SELECTION_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f31c90260554c5a9d6dcffec47bc6c2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ou7iqzZ1YI2PzT_9X-M6PT5iVo2QRboWnFZrO3IBOL4";
-  
-  document.querySelectorAll('.keyword-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-      const service = this.dataset.service;
-      const serviceName = this.querySelector('h4')?.textContent || 'Unknown';
-      const sessionId = localStorage.getItem("eek_session_id");
-      const gclid = localStorage.getItem("eek_gclid");
-      
+    function getAndStoreGCLID() {
       const urlParams = new URLSearchParams(window.location.search);
+      const gclid = urlParams.get('gclid') || urlParams.get('gbraid') || urlParams.get('wbraid');
+      
+      if (gclid) {
+        localStorage.setItem("eek_gclid", gclid);
+        localStorage.setItem("eek_gclid_timestamp", new Date().toISOString());
+        return gclid;
+      }
+      
+      const storedGclid = localStorage.getItem("eek_gclid");
+      const storedTimestamp = localStorage.getItem("eek_gclid_timestamp");
+      
+      if (storedGclid && storedTimestamp) {
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        
+        if (new Date(storedTimestamp) > thirtyDaysAgo) {
+          return storedGclid;
+        } else {
+          localStorage.removeItem("eek_gclid");
+          localStorage.removeItem("eek_gclid_timestamp");
+        }
+      }
+      
+      return null;
+    }
+
+    // Call Tracking
+    function sendCallClick(eventAction, eventCategory, anchorEl) {
+      const callAttemptId = "call_" + Date.now() + "_" + Math.random().toString(36).slice(2,10);
+      const sessionId = getOrCreateSessionId();
+      const gclid = getAndStoreGCLID();
       
       const payload = {
-        eventType: "service_selection",
+        eventType: "call_click",
         timestamp: new Date().toISOString(),
         sessionId: sessionId,
+        callAttemptId: callAttemptId,
         gclid: gclid,
-        service: { code: service, name: serviceName, placement: "orange_service_card" },
-        site: { domain: location.hostname, url: location.href, path: location.pathname, title: document.title },
-        utm: {
-          source: urlParams.get("utm_source") || null,
-          medium: urlParams.get("utm_medium") || null,
-          campaign: urlParams.get("utm_campaign") || null,
-          term: urlParams.get("utm_term") || null,
-          content: urlParams.get("utm_content") || null,
-          gclid: gclid,
-          msclkid: urlParams.get("msclkid") || null,
-          fbclid: urlParams.get("fbclid") || null,
-          rdtclid: urlParams.get("rdtclid") || null
-        },
-        device: {
-          userAgent: navigator.userAgent,
-          platform: navigator.platform || null,
-          language: navigator.language || null,
-          mobile: /Mobi|Android/i.test(navigator.userAgent)
-        }
-      };
-      
-      console.log('🎯 SERVICE SELECTION TRACKED:', serviceName, payload);
-      
-      fetch(SERVICE_SELECTION_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        keepalive: true
-      }).then(response => {
-        console.log('✅ Service selection webhook sent:', response.status, serviceName);
-      }).catch(error => {
-        console.error('❌ Service selection webhook failed:', error);
-      });
-      
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'service_card_click', {
-          'event_category': 'Service Selection',
-          'event_label': serviceName,
-          'service_code': service
-        });
-      }
-      
-      if (typeof rdt !== 'undefined') {
-        rdt('track', 'Custom', {
-          'customEventName': 'Service_Card_Click',
-          'serviceType': serviceName,
-          'serviceCode': service
-        });
-      }
-    });
-  });
-  
-  console.log('✅ Service selection tracking initialized for', document.querySelectorAll('.keyword-item').length, 'cards');
-}
-
-// Update all phone numbers on page load
-function updatePhoneNumbers() {
-  const phoneData = getDisplayPhoneNumber();
-  
-  document.querySelectorAll('.phone-link').forEach(link => {
-    link.href = phoneData.tel;
-  });
-  
-  document.querySelectorAll('.phone-display').forEach(span => {
-    if (span.textContent.includes('769 000') || span.textContent.includes('769000') || span.textContent === 'Eek Now' || span.textContent === 'Now') {
-      if (span.textContent === 'Now' || span.textContent === 'Eek Now') {
-        span.textContent = 'Now';
-      } else {
-        span.textContent = phoneData.display;
-      }
-    }
-  });
-}
-
-// checkSystemStatus now reads from cached callflow state
-async function checkSystemStatus() {
-  const states = await fetchStatesOnce(false);
-  const isActive = states.callflowState === 'Active' || states.callflowState === true;
-  const debugSystemStatus = document.getElementById('debugSystemStatus');
-  if (debugSystemStatus) {
-    debugSystemStatus.textContent = isActive ? 'ACTIVE' : 'INACTIVE';
-    debugSystemStatus.style.color = isActive ? '#0f0' : '#f00';
-  }
-  if (states.callflowState == null) {
-    console.log('🔄 Defaulting to ACTIVE due to missing callflow state');
-    return true;
-  }
-  return isActive;
-}
-
-// Function to check if current time is within business hours (NZ time)
-function isWithinBusinessHours() {
-  const nzTime = new Date().toLocaleString("en-US", {timeZone: "Pacific/Auckland"});
-  const now = new Date(nzTime);
-  const day = now.getDay();
-  const hour = now.getHours();
-  const minutes = now.getMinutes();
-  const time = hour + minutes / 60;
-  
-  let isOpen = false;
-  if (day >= 1 && day <= 5) isOpen = time >= 7 && time < 17;
-  if (day === 0 || day === 6) isOpen = time >= 7 && time < 12;
-  
-  const debugBusinessHours = document.getElementById('debugBusinessHours');
-  const debugCurrentTime = document.getElementById('debugCurrentTime');
-  
-  if (debugBusinessHours) {
-    debugBusinessHours.textContent = isOpen ? 'OPEN' : 'CLOSED';
-    debugBusinessHours.style.color = isOpen ? '#0f0' : '#f00';
-  }
-  
-  if (debugCurrentTime) {
-    debugCurrentTime.textContent = now.toLocaleString() + ' (NZ Time)';
-  }
-  
-  console.log('🕒 Business hours check:', isOpen ? 'OPEN' : 'CLOSED', `(${now.toLocaleString()} NZ Time)`);
-  return isOpen;
-}
-
-// Update UI based on system status
-async function updateHoursDisplay() {
-  console.log('🔄 Starting updateHoursDisplay...');
-  
-  const urlParams = new URLSearchParams(window.location.search);
-  const hasPaymentToken = urlParams.get('token');
-  const hasGclid = extractGCLID(urlParams);
-  
-  const debugPaymentToken = document.getElementById('debugPaymentToken');
-  if (debugPaymentToken) debugPaymentToken.textContent = hasPaymentToken ? 'YES' : 'NO';
-  
-  const states = await fetchStatesOnce(false);
-  
-  let systemActive;
-  if ((hasGclid && states.gclidState === 'Active') || hasPaymentToken) {
-    systemActive = true;
-    console.log('🎯 GCLID+Active or token detected — force ACTIVE');
-  } else {
-    systemActive = await checkSystemStatus();
-  }
-  
-  const duringBusinessHours = isWithinBusinessHours();
-  
-  console.log('📊 Status Summary:', {
-    systemActive,
-    duringBusinessHours,
-    hasPaymentToken: !!hasPaymentToken,
-    hasGclid: !!hasGclid,
-    gclidState: states.gclidState,
-    callflowState: states.callflowState
-  });
-  
-  // Show/hide based on system state
-  const normalElements = document.querySelectorAll('.normal-hours-btn, .normal-hours-only');
-  const afterHoursElements = document.querySelectorAll('.after-hours-btn');
-  
-  if (systemActive) {
-    // PHONES ARE ON - Show call buttons, hide booking
-    normalElements.forEach(el => {
-      if (el.style) el.style.display = '';
-    });
-    afterHoursElements.forEach(el => {
-      if (el.style) el.style.display = 'none';
-    });
-    
-    const closedBanner = document.getElementById('closedBanner');
-    const phonesBusyBanner = document.getElementById('phonesBusyBanner');
-    if (closedBanner) closedBanner.style.display = 'none';
-    if (phonesBusyBanner) phonesBusyBanner.style.display = 'none';
-    
-    const stickyCall = document.getElementById('stickyCallButton');
-    const stickyClosed = document.getElementById('stickyClosedButton');
-    if (stickyCall) stickyCall.style.display = 'inline-block';
-    if (stickyClosed) stickyClosed.style.display = 'none';
-    
-    console.log('✅ PHONES ON - Showing call buttons');
-  } else {
-    // PHONES ARE OFF - Show booking buttons, hide call
-    normalElements.forEach(el => {
-      if (el.style) el.style.display = 'none';
-    });
-    afterHoursElements.forEach(el => {
-      if (el.style) el.style.display = 'block';
-    });
-    
-    const closedBanner = document.getElementById('closedBanner');
-    const closedTitle = document.getElementById('closedTitle');
-    const afterHoursMessage = document.getElementById('afterHoursMessage');
-    const tempUnavailableMessage = document.getElementById('tempUnavailableMessage');
-    const phonesBusyBanner = document.getElementById('phonesBusyBanner');
-    
-    // Show appropriate banner
-    if (duringBusinessHours) {
-      if (phonesBusyBanner) phonesBusyBanner.style.display = 'block';
-      if (closedBanner) {
-        closedBanner.style.display = 'block';
-        if (closedTitle) closedTitle.innerHTML = '🚧 PHONE LINES BUSY';
-        if (afterHoursMessage) afterHoursMessage.style.display = 'none';
-        if (tempUnavailableMessage) tempUnavailableMessage.style.display = 'block';
-      }
-    } else {
-      if (phonesBusyBanner) phonesBusyBanner.style.display = 'none';
-      if (closedBanner) {
-        closedBanner.style.display = 'block';
-        if (closedTitle) closedTitle.innerHTML = '🕐 CURRENTLY CLOSED';
-        if (afterHoursMessage) afterHoursMessage.style.display = 'block';
-        if (tempUnavailableMessage) tempUnavailableMessage.style.display = 'none';
-      }
-    }
-    
-    // Update sticky button
-    const stickyCall = document.getElementById('stickyCallButton');
-    const stickyClosed = document.getElementById('stickyClosedButton');
-    if (stickyCall) stickyCall.style.display = 'none';
-    if (stickyClosed) {
-      stickyClosed.style.display = 'inline-block';
-      stickyClosed.innerHTML = '📅 Book Now';
-    }
-    
-    // Add urgency badges to service cards
-    document.querySelectorAll('.keyword-item').forEach(item => {
-      if (!item.querySelector('.urgency-badge')) {
-        const badge = document.createElement('div');
-        badge.className = 'urgency-badge';
-        badge.innerHTML = '<span style="background:#dc3545;color:#fff;padding:6px 12px;border-radius:20px;font-size:0.85em;font-weight:700;display:inline-block;margin-top:10px;">⚡ BOOK NOW - LIMITED SLOTS</span>';
-        item.appendChild(badge);
-      }
-    });
-    
-    console.log('📅 PHONES OFF - Showing booking buttons');
-  }
-  
-  console.log('✅ updateHoursDisplay completed - System is', systemActive ? 'ACTIVE' : 'INACTIVE');
-}
-
-/* === INCOMING CALL CORRELATION WEBHOOK === */
-(function(){
-  const INCOMING_CALL_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f31c90260554c5a9d6dcffec47bc6c2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ou7iqzZ1YI2PzT_9X-M6PT5iVo2QRboWnFZrO3IBOL4";
-  
-  window.correlateIncomingCall = function(callerID, internalNumber) {
-    const sessionId = localStorage.getItem("eek_session_id");
-    const lastCallAttemptId = localStorage.getItem("eek_last_call_attempt_id");
-    const lastCallTimestamp = localStorage.getItem("eek_last_call_timestamp");
-    const gclid = localStorage.getItem("eek_gclid");
-    
-    if (!sessionId) return;
-    
-    const payload = {
-      eventType: "incoming_call_correlation",
-      timestamp: new Date().toISOString(),
-      sessionId: sessionId,
-      callerID: callerID,
-      internalNumber: internalNumber,
-      lastCallAttemptId: lastCallAttemptId,
-      lastCallTimestamp: lastCallTimestamp,
-      gclid: gclid,
-      correlationSuccess: true
-    };
-    
-    fetch(INCOMING_CALL_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      keepalive: true
-    }).then(() => {
-      console.log('✅ Call correlated with GCLID:', gclid);
-    }).catch(() => {});
-  };
-})();
-
-/* === ENHANCED CALL-CLICK WEBHOOK WITH GCLID/GBRAID/WBRAID === */
-(function(){
-  const CALL_CLICK_URL = "https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f31c90260554c5a9d6dcffec47bc6c2/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Ou7iqzZ1YI2PzT_9X-M6PT5iVo2QRboWnFZrO3IBOL4";
-
-  function getOrCreateSessionId(){
-    let sid = localStorage.getItem("eek_session_id");
-    if (!sid){
-      sid = "session_" + Date.now() + "_" + Math.random().toString(36).slice(2,11);
-      localStorage.setItem("eek_session_id", sid);
-    }
-    return sid;
-  }
-
-  function getUTM(){
-    const q = new URLSearchParams(location.search);
-    const gclid = extractGCLID(q);
-    return {
-      source: q.get("utm_source") || null,
-      medium: q.get("utm_medium") || null,
-      campaign: q.get("utm_campaign") || null,
-      term: q.get("utm_term") || null,
-      content: q.get("utm_content") || null,
-      gclid: gclid,
-      msclkid: q.get("msclkid") || null,
-      fbclid: q.get("fbclid") || null,
-      rdtclid: q.get("rdtclid") || null
-    };
-  }
-
-  function getAndStoreGCLID(){
-    const urlParams = new URLSearchParams(location.search);
-    let gclid = extractGCLID(urlParams);
-    if (gclid) {
-      localStorage.setItem("eek_gclid", gclid);
-      localStorage.setItem("eek_gclid_timestamp", new Date().toISOString());
-      return gclid;
-    }
-    const storedGclid = localStorage.getItem("eek_gclid");
-    const storedTimestamp = localStorage.getItem("eek_gclid_timestamp");
-    if (storedGclid && storedTimestamp) {
-      const thirtyDaysAgo = new Date();
-      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-      if (new Date(storedTimestamp) > thirtyDaysAgo) {
-        return storedGclid;
-      } else {
-        localStorage.removeItem("eek_gclid");
-        localStorage.removeItem("eek_gclid_timestamp");
-      }
-    }
-    return null;
-  }
-
-  function closestPlacement(el){
-    if (!el) return null;
-    if (el.id) return "#" + el.id;
-    const withId = el.closest("[id]");
-    return withId ? ("#" + withId.id) : null;
-  }
-
-  function sendCallClick(eventAction, eventCategory, anchorEl){
-    const callAttemptId = "call_" + Date.now() + "_" + Math.random().toString(36).slice(2,10);
-    const sessionId = getOrCreateSessionId();
-    const gclid = getAndStoreGCLID();
-    
-    const payload = {
-      eventType: "call_click",
-      timestamp: new Date().toISOString(),
-      sessionId: sessionId,
-      callAttemptId: callAttemptId,
-      gclid: gclid,
-      phoneTarget: (anchorEl && anchorEl.getAttribute("href")) || "tel:0800769000",
-      button: {
-        eventAction: eventAction || "phone_call",
-        eventCategory: eventCategory || "Contact",
-        serviceType: (typeof getServiceType === "function") ? getServiceType(eventAction) : undefined,
-        placement: anchorEl ? closestPlacement(anchorEl) : null,
-        text: anchorEl ? (anchorEl.textContent || "").trim() : null
-      },
-      site: {
-        domain: location.hostname,
-        url: location.href,
-        path: location.pathname,
-        title: document.title,
-        referrer: document.referrer || null
-      },
-      utm: getUTM(),
-      device: {
+        eventAction: eventAction,
+        eventCategory: eventCategory,
+        url: window.location.href,
         userAgent: navigator.userAgent,
-        platform: navigator.platform || null,
-        language: navigator.language || null,
-        mobile: /Mobi|Android/i.test(navigator.userAgent),
-        screen: {
-          width: (window.screen && window.screen.width) || null,
-          height: (window.screen && window.screen.height) || null,
-          pixelRatio: window.devicePixelRatio || 1
-        }
-      },
-      status: "pending"
-    };
+        referrer: document.referrer
+      };
 
-    try {
-      localStorage.setItem("eek_last_call_attempt_id", callAttemptId);
-      localStorage.setItem("eek_last_call_timestamp", payload.timestamp);
-      if (gclid) localStorage.setItem("eek_last_gclid", gclid);
-    } catch (_) {}
-
-    fetch(CALL_CLICK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      keepalive: true
-    }).then(response => {
-      console.log('✅ Call click tracked with GCLID/GBRAID/WBRAID:', gclid, 'Status:', response.status);
-    }).catch(error => {
-      console.error('❌ Call click failed:', error);
-    });
-  }
-
-  document.addEventListener("click", function(ev){
-    const a = ev.target && ev.target.closest && ev.target.closest('a[href^="tel:"]');
-    if (a) window.__eek_last_tel_anchor = a;
-  }, true);
-
-  const _origTrack = window.trackConversion || function(){};
-  window.trackConversion = function(eventAction, eventCategory){
-    try {
-      if (eventAction && /call/i.test(eventAction)){
-        sendCallClick(eventAction, eventCategory, window.__eek_last_tel_anchor || null);
-      }
-    } catch(_) {}
-    return _origTrack.apply(this, arguments);
-  };
-
-  window.addEventListener('load', function() {
-    const gclid = getAndStoreGCLID();
-    if (gclid) console.log('GCLID/GBRAID/WBRAID detected and stored for persistent tracking:', gclid);
-  });
-})();
-
-// Enhanced tracking function
-function trackConversion(eventAction, eventCategory) {
-  const conversionId = 'eek_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-  
-  const serviceValues = {
-    'inspection_call': 19900,
-    'breakdown_call': 28900,
-    'battery_call': 14900,
-    'fuel_drain_call': 39900,
-    'header_call': 25000,
-    'sticky_call': 25000,
-    'more_options_call': 25000,
-    'mega_banner_call': 25000
-  };
-  
-  const eventValue = serviceValues[eventAction] || 25000;
-  
-  if (typeof gtag !== 'undefined') {
-    gtag('event', eventAction, {
-      'event_category': eventCategory,
-      'event_label': 'Phone Call Click',
-      'value': eventValue / 100
-    });
-    gtag('event', 'conversion', {
-      'send_to': 'AW-17084465163/7Mh8CKFRydsaEIuAwJI_'
-    });
-  }
-  
-  if (typeof rdt !== 'undefined') {
-    rdt('track', 'Lead', {
-      'customEventName': 'Phone_Call_Click',
-      'conversionId': conversionId,
-      'value': eventValue,
-      'currency': 'NZD',
-      'itemCount': 1,
-      'eventSource': eventAction,
-      'eventCategory': eventCategory,
-      'serviceType': getServiceType(eventAction)
-    });
-  }
-}
-
-function getServiceType(eventAction) {
-  const serviceMap = {
-    'inspection_call': 'Pre-Purchase Inspection',
-    'breakdown_call': 'Emergency Breakdown',
-    'battery_call': 'Battery Jump Start',
-    'fuel_drain_call': 'Wrong Fuel Rescue',
-    'header_call': 'General Inquiry',
-    'sticky_call': 'General Inquiry',
-    'mega_banner_call': 'Mega Banner Call',
-    'more_options_call': 'General Inquiry'
-  };
-  return serviceMap[eventAction] || 'General Service';
-}
-
-// Initialize on page load
-window.addEventListener('load', function() {
-  console.log('🚀 Page loaded - initializing...');
-  
-  startStatePoller(5 * 60 * 1000);
-  updatePhoneNumbers();
-  updateServiceLinks();
-  handleServiceSelection();
-  trackServiceSelection();
-  updateHoursDisplay();
-  
-  setInterval(updateHoursDisplay, 5 * 60 * 1000);
-  
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'page_view', {
-      'page_title': document.title,
-      'page_location': window.location.href
-    });
-  }
-  
-  console.log('✅ Initialization complete');
-});
-
-let scrollTracked = false;
-window.addEventListener('scroll', function() {
-  if (!scrollTracked && window.scrollY > document.body.scrollHeight * 0.5) {
-    scrollTracked = true;
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'scroll_50_percent', {
-        'event_category': 'Engagement',
-        'event_label': 'Scrolled 50% of page'
+      fetch('https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com/api/eek/call-tracking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      }).catch(error => {
+        console.log('Call tracking error:', error);
       });
     }
-  }
-});
 
-// TOKEN PAYMENT FUNCTIONALITY
-(function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get('token');
+    // Conversion Tracking
+    function trackConversion(eventAction, eventCategory) {
+      const conversionId = 'eek_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      
+      const serviceValues = {
+        'fuel_drain_call': 39900,
+        'header_call': 25000,
+        'sticky_call': 25000,
+        'booking_submit': 35000
+      };
 
-  const box = document.getElementById('stripePaymentBlock');
-  const checkbox = document.getElementById('termsCheckbox');
-  const button = document.getElementById('payNowButton');
-  const sticky = document.getElementById('stripePaymentSticky');
+      const serviceMap = {
+        'fuel_drain_call': 'Wrong Fuel Rescue',
+        'header_call': 'General Inquiry',
+        'sticky_call': 'General Inquiry',
+        'booking_submit': 'Online Booking'
+      };
 
-  if (token && box && checkbox && button && sticky) {
-    console.log('💳 Payment token detected, setting up payment UI');
-    
-    // Add payment mode class to body for CSS targeting
-    document.body.classList.add('payment-mode');
-    
-    box.style.display = 'block';
-    sticky.style.display = 'inline-block';
-    
-    // Hide ALL sticky buttons with force
-    document.querySelectorAll('.sticky-call, #stickyCallButton, #stickyClosedButton').forEach(el => {
-      if (el) {
-        el.style.display = 'none';
-        el.style.visibility = 'hidden';
+      const conversionValue = serviceValues[eventAction] || 25000;
+      const serviceName = serviceMap[eventAction] || 'General Service';
+
+      // Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17084465163',
+          'value': conversionValue,
+          'currency': 'NZD',
+          'transaction_id': conversionId
+        });
+      }
+
+      // Reddit Pixel
+      if (typeof rdt !== 'undefined') {
+        rdt('track', 'Purchase', {
+          value: conversionValue,
+          currency: 'NZD'
+        });
+      }
+
+      // Call tracking for phone calls
+      if (eventAction && /call/i.test(eventAction)) {
+        sendCallClick(eventAction, eventCategory, null);
+      }
+
+      console.log('Conversion tracked:', eventAction, serviceName, conversionValue);
+    }
+
+    // Phone Number Management
+    function updatePhoneNumbers() {
+      const phoneElements = document.querySelectorAll('.phone-number, .sticky-call[href^="tel:"]');
+      const currentHour = new Date().getHours();
+      const isBusinessHours = currentHour >= 8 && currentHour < 18;
+      
+      phoneElements.forEach(element => {
+        if (isBusinessHours) {
+          element.href = 'tel:0800769000';
+          element.textContent = element.textContent.replace(/0800\s*\d{3}\s*\d{3}/g, '0800 769 000');
+        } else {
+          element.href = 'tel:0800769000';
+          element.textContent = element.textContent.replace(/0800\s*\d{3}\s*\d{3}/g, '0800 769 000');
+        }
+      });
+    }
+
+    // Business Hours Management
+    function updateBusinessHours() {
+      const currentHour = new Date().getHours();
+      const isBusinessHours = currentHour >= 8 && currentHour < 18;
+      
+      const normalHoursElements = document.querySelectorAll('.normal-hours-only');
+      const afterHoursElements = document.querySelectorAll('.after-hours');
+      
+      normalHoursElements.forEach(element => {
+        element.style.display = isBusinessHours ? 'block' : 'none';
+      });
+      
+      afterHoursElements.forEach(element => {
+        element.style.display = isBusinessHours ? 'none' : 'block';
+      });
+    }
+
+    // Modal Functions
+    function openBookingModal() {
+      document.getElementById('bookingModal').style.display = 'block';
+      trackConversion('booking_modal_open', 'Engagement');
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('bookingModal');
+      if (event.target === modal) {
+        closeBookingModal();
+      }
+    }
+
+    // Booking Form Submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const bookingData = {
+        customerName: formData.get('customerName'),
+        customerPhone: formData.get('customerPhone'),
+        customerEmail: formData.get('customerEmail'),
+        serviceLocation: formData.get('serviceLocation'),
+        vehicleDetails: formData.get('vehicleDetails'),
+        fuelType: formData.get('fuelType'),
+        urgency: formData.get('urgency'),
+        additionalInfo: formData.get('additionalInfo'),
+        timestamp: new Date().toISOString(),
+        sessionId: getOrCreateSessionId(),
+        gclid: getAndStoreGCLID()
+      };
+
+      // Track conversion
+      trackConversion('booking_submit', 'Booking');
+
+      // Submit to API
+      fetch('https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com/api/eek/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Booking request submitted successfully! We will contact you shortly.');
+        closeBookingModal();
+        this.reset();
+      })
+      .catch(error => {
+        console.error('Booking error:', error);
+        alert('There was an error submitting your booking. Please try calling us directly at 0800 769 000.');
+      });
+    });
+
+    // Initialize on page load
+    window.addEventListener('load', function() {
+      console.log('🚀 EIN Fuel Extraction page loaded');
+      
+      updatePhoneNumbers();
+      updateBusinessHours();
+      
+      // Update every minute
+      setInterval(updateBusinessHours, 60000);
+      
+      const gclid = getAndStoreGCLID();
+      if (gclid) {
+        console.log('GCLID detected:', gclid);
       }
     });
-    
-    // Hide ALL call buttons
-    const normalButtons = document.querySelectorAll('.normal-hours-btn');
-    normalButtons.forEach(btn => { if (btn.style) btn.style.display = 'none'; });
-    
-    // Hide header
-    const header = document.querySelector('header');
-    if (header) header.style.display = 'none';
-    
-    // Hide normal hours elements
-    document.querySelectorAll('.normal-hours-only').forEach(el => {
-      if (el.style) el.style.display = 'none';
-    });
-    
-    // Hide social proof box
-    const socialProof = document.querySelector('.social-proof-box');
-    if (socialProof) socialProof.style.display = 'none';
-    
-    // Hide phones busy banner
-    const phonesBusyBanner = document.getElementById('phonesBusyBanner');
-    if (phonesBusyBanner) phonesBusyBanner.style.display = 'none';
-    
-    // Hide all phone links and displays
-    document.querySelectorAll('.phone-link, .phone-display').forEach(el => {
-      if (el.style) el.style.display = 'none';
-    });
-    
-    // Hide service selection orange boxes
-    const serviceSelection = document.getElementById('service-selection');
-    if (serviceSelection) serviceSelection.style.display = 'none';
-    
-    // Hide all service sections (breakdown, battery, fuel, inspection) except reviews
-    document.querySelectorAll('.services').forEach(section => {
-      if (section.id && section.id !== 'customer-reviews') {
-        section.style.display = 'none';
-      }
-    });
 
-    sticky.href = '#stripePaymentBlock';
-
-    checkbox.addEventListener('change', () => {
-      button.style.display = checkbox.checked ? 'inline-block' : 'none';
-    });
-
-    button.addEventListener('click', () => {
-      window.location.href = `https://buy.stripe.com/${token}`;
-    });
-    
-    console.log('💳 Payment UI setup complete - all distractions hidden');
-  }
-})();
-</script>
-
+    // Track page view
+    trackConversion('page_view', 'Engagement');
+  </script>
 </body>
 </html>
