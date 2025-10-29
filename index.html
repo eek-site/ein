@@ -334,7 +334,33 @@ font-src 'self' data:;">
     }
 
     .emergency-content p {
-      font-size: 1. operational
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    /* Status Banner (After Hours / Phones Busy) */
+    .status-banner {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 998;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: var(--white);
+      padding: 18px 24px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+    .status-banner h3 {
+      margin: 0 0 4px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .status-banner p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.95;
     }
 
     /* Main Content */
@@ -925,18 +951,24 @@ font-src 'self' data:;">
     </div>
   </header>
 
+  <!-- Corporate Status Banner -->
+  <div id="statusBanner" class="status-banner" role="status" aria-live="polite" style="display:none;">
+    <h3 id="statusBannerTitle">Currently Closed</h3>
+    <p id="statusBannerText">Our phone lines are closed. Please book online and we will confirm the next available slot.</p>
+  </div>
+
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-content">
       <div class="hero-badge">Emergency Wrong Fuel Recovery Service</div>
-      <h1 class="hero-title">Wrong Fuel Emergency?</h1>
-      <p class="hero-subtitle">Don't start your engine. Our certified fuel extraction specialists provide professional wrong fuel recovery across New Zealand. We extract contaminated fuel, inspect for damage, and neutralize risk to keep you safe and your engine protected.</p>
+      <h1 class="hero-title">Wrong Fuel Incident Response</h1>
+      <p class="hero-subtitle">EIN delivers certified, insured fuel decontamination and system recovery across New Zealand. We contain risk, protect assets, and return vehicles to service with verified procedures and documentation.</p>
       
       <div class="emergency-alert">
         <div class="emergency-icon">⚠️</div>
         <div class="emergency-content">
-          <h2>DON'T START YOUR CAR</h2>
-          <p>Starting your engine with wrong fuel can cause thousands in damage. Call EIN immediately for professional fuel extraction service.</p>
+          <h2>Do Not Start The Engine</h2>
+          <p>Starting may escalate damage to pumps, injectors, and emissions systems. Contact EIN for controlled extraction and remediation.</p>
         </div>
       </div>
     </div>
@@ -947,23 +979,23 @@ font-src 'self' data:;">
     <div class="trust-grid">
       <div class="trust-item">
         <span class="trust-icon">🏆</span>
-        <h4>Certified Professionals</h4>
-        <p>Licensed technicians with specialized fuel extraction equipment</p>
+        <h4>Certified Specialists</h4>
+        <p>Competency-assessed personnel operating calibrated, intrinsically safe equipment</p>
       </div>
       <div class="trust-item">
         <span class="trust-icon">🛡️</span>
-        <h4>Fully Insured</h4>
-        <p>Comprehensive insurance coverage for complete peace of mind</p>
+        <h4>Comprehensive Cover</h4>
+        <p>Professional indemnity and public liability aligned to corporate procurement standards</p>
       </div>
       <div class="trust-item">
         <span class="trust-icon">⚡</span>
-        <h4>Fast Response</h4>
-        <p>Most emergency calls dispatched within 30 minutes</p>
+        <h4>Rapid Mobilisation</h4>
+        <p>Priority dispatch with ETA confirmation and continuous status updates</p>
       </div>
       <div class="trust-item">
         <span class="trust-icon">🇳🇿</span>
-        <h4>Nationwide Service</h4>
-        <p>Available 24/7 across all of New Zealand</p>
+        <h4>Nationwide Coverage</h4>
+        <p>24/7 availability across NZ with centralised coordination and audit trail</p>
       </div>
     </div>
   </div>
@@ -973,29 +1005,29 @@ font-src 'self' data:;">
     <div class="container">
       <!-- Process Section -->
       <section class="process-section">
-        <h2 class="section-title">Our Professional Process</h2>
-        <p class="section-subtitle">EIN Fuel Extraction follows a proven three-step process to safely resolve your wrong fuel emergency</p>
+        <h2 class="section-title">Controlled Recovery Process</h2>
+        <p class="section-subtitle">Procedural extraction, inspection, and neutralisation aligned to OEM guidance and safety protocols</p>
         
         <div class="process-grid">
           <div class="process-card">
             <div class="process-number">1</div>
             <span class="process-icon">⛽</span>
             <h3>Extract</h3>
-            <p>Our certified technicians arrive with specialized equipment to completely drain and remove all contaminated fuel from your vehicle's fuel system.</p>
+            <p>Securely remove contaminants from tank and lines using anti-static equipment and closed-loop recovery.</p>
           </div>
 
           <div class="process-card">
             <div class="process-number">2</div>
             <span class="process-icon">🔍</span>
             <h3>Inspect</h3>
-            <p>We perform a comprehensive inspection of your fuel system, assessing for any potential damage and providing a detailed damage assessment report.</p>
+            <p>Assess components for exposure and wear; document findings for insurers and fleet managers.</p>
           </div>
 
           <div class="process-card">
             <div class="process-number">3</div>
             <span class="process-icon">🛡️</span>
-            <h3>Neutralize</h3>
-            <p>We clean and flush the entire fuel system, add system protection treatments, and ensure your vehicle is safe to drive with fresh fuel.</p>
+            <h3>Neutralise</h3>
+            <p>Flush, condition, and verify system performance; provide completion record and advisory.</p>
           </div>
         </div>
       </section>
@@ -1003,8 +1035,8 @@ font-src 'self' data:;">
       <!-- CTA Section -->
       <section class="cta-section">
         <div class="cta-content">
-          <h2 class="cta-title">Get Professional Help Now</h2>
-          <p class="cta-subtitle">Most emergency calls are dispatched within 30 minutes. Professional fuel extraction service is significantly cheaper than engine damage repair.</p>
+          <h2 class="cta-title">Engage EIN Response</h2>
+          <p class="cta-subtitle">24/7 nationwide mobilisation. Certified personnel, insured operations, documented outcomes. Minimise downtime and prevent secondary damage.</p>
           
           <div class="cta-buttons">
             <a href="tel:0800769000" class="btn btn-primary phone-link normal-hours-only" onclick="trackConversion('fuel_drain_call', 'Contact')" id="mainCallButton">
@@ -1018,7 +1050,7 @@ font-src 'self' data:;">
             </button>
           </div>
 
-          <p style="opacity: 0.8; font-size: 0.9375rem;">Available 24/7 across New Zealand • Fully Insured • Licensed & Certified</p>
+          <p style="opacity: 0.8; font-size: 0.9375rem;">24/7 NZ Coverage • Insured Service • Certified Personnel • Documented Completion</p>
         </div>
       </section>
     </div>
@@ -1222,11 +1254,26 @@ font-src 'self' data:;">
         afterHrs.forEach(el => el.classList.add('hidden'));
         const avail = document.getElementById('availabilityText');
         if (avail) avail.textContent = 'Available Now';
+        const sb = document.getElementById('statusBanner');
+        if (sb) sb.style.display = 'none';
       } else {
         normal.forEach(el => el.classList.add('hidden'));
         afterHrs.forEach(el => el.classList.remove('hidden'));
         const avail = document.getElementById('availabilityText');
         if (avail) avail.textContent = openNow ? 'Phones Busy - Book Online' : 'After Hours - Book Online';
+        const sb = document.getElementById('statusBanner');
+        const title = document.getElementById('statusBannerTitle');
+        const text = document.getElementById('statusBannerText');
+        if (sb && title && text) {
+          if (openNow) {
+            title.textContent = 'High Demand – Phone Lines Busy';
+            text.textContent = 'Please book online. We will assign the next available specialist and confirm promptly.';
+          } else {
+            title.textContent = "Currently Closed";
+            text.textContent = 'Our phone lines are closed. Please book online and we will confirm the next available slot.';
+          }
+          sb.style.display = 'block';
+        }
       }
     }
 
