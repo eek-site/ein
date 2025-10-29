@@ -1157,63 +1157,76 @@ font-src 'self' data:;">
     // This manages phone/booking display based on system status
     
     const API_ENDPOINT = 'https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com';
-    let systemStatus = {
-      isActive: true,
-      phonesBusy: false,
-      isBusinessHours: true,
-      message: 'Available Now'
-    };
 
-    // Check system status from API
-    async function checkSystemStatus() {
-      try {
-        const response = await fetch(`${API_ENDPOINT}/api/eek/system-status`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          systemStatus = {
-            isActive: data.isActive !== false,
-            phonesBusy: data.phonesBusy === true,
-            isBusinessHours: data.isBusinessHours !== false,
-            message: data.message || 'Available Now'
-          };
-        } else {
-          // Fallback to time-based logic if API fails
-          const currentHour = new Date().getHours();
-          systemStatus.isBusinessHours = currentHour >= 8 && currentHour < 18;
-          systemStatus.isActive = systemStatus.isBusinessHours;
-        }
-      } catch (error) {
-        console.log('System status check failed, using fallback:', error);
-        // Fallback to time-based logic
-        const currentHour = new Date().getHours();
-        systemStatus.isBusinessHours = currentHour >= 8 && currentHour < 18;
-        systemStatus.isActive = systemStatus.isBusinessHours;
-      }
-      
-      updateUI();
+    // Mirror EEK phone decision logic (inline, no external JSON/CSS)
+    window.eek_states = { gclidState: null, callflowState: null, lastFetched: 0 };
+    let eekStatesFetchPromise = null;
+    const EEK_GCLID_STATE_URL = `${API_ENDPOINT}:443/powerautomate/automations/direct/workflows/5f20c5153e8a4de0be50a17e2dab4254/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Zw5-_6YSCNPb2cfjjfa0Oj_Fpc7N9rhHfc6fPZZhX7g`;
+    const EEK_CALLFLOW_STATE_URL = `${API_ENDPOINT}:443/powerautomate/automations/direct/workflows/17b1d2990e6f4082a2b0d9c2f1a29025/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=bPyoxJ24kuxJZOyLGAclGaEuH6BHwUTFaGmYOwHofa8`;
+
+    function extractGCLID(qs){
+      const v = (qs.get('gclid') || qs.get('gbraid') || qs.get('wbraid'));
+      return v && v.trim() ? v : null;
+    }
+
+    async function fetchStatesOnce(force = false) {
+      const now = Date.now();
+      if (!force && eekStatesFetchPromise) return eekStatesFetchPromise;
+      if (!force && now - (window.eek_states.lastFetched || 0) < 30000) return window.eek_states;
+
+      eekStatesFetchPromise = (async () => {
+        let { gclidState, callflowState } = window.eek_states;
+        try {
+          const [gclidResp, callflowResp] = await Promise.all([
+            fetch(EEK_GCLID_STATE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({}), cache: 'no-store' }),
+            fetch(EEK_CALLFLOW_STATE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({}), cache: 'no-store' })
+          ]);
+          if (gclidResp.ok) { const j = await gclidResp.json(); gclidState = (j && (j.state ?? j)) || null; }
+          if (callflowResp.ok) { const j = await callflowResp.json(); callflowState = (j && (j.state ?? j)) || null; }
+        } catch(_) { /* keep previous */ }
+        window.eek_states = { gclidState, callflowState, lastFetched: Date.now() };
+        eekStatesFetchPromise = null;
+        return window.eek_states;
+      })();
+      return eekStatesFetchPromise;
+    }
+
+    function isWithinBusinessHoursNZ(){
+      const nz = new Date(new Date().toLocaleString('en-US', { timeZone: 'Pacific/Auckland' }));
+      const d = nz.getDay();
+      const t = nz.getHours() + nz.getMinutes()/60;
+      let open = false;
+      if (d>=1 && d<=5) open = t>=7 && t<17; // Mon-Fri 7:00-17:00
+      if (d===0 || d===6) open = t>=7 && t<12; // Sat/Sun 7:00-12:00
+      return open;
+    }
+
+    async function resolveSystemActive() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const hasToken = !!urlParams.get('token');
+      const gclid = extractGCLID(urlParams);
+      const states = await fetchStatesOnce(false);
+      if ((gclid && states.gclidState === 'Active') || hasToken) return true;
+      if (states.callflowState == null) return true; // default active if unknown
+      return states.callflowState === 'Active' || states.callflowState === true;
     }
 
     // Update UI based on system status
-    function updateUI() {
-      const normalHoursElements = document.querySelectorAll('.normal-hours-only');
-      const afterHoursElements = document.querySelectorAll('.after-hours');
-      
-      if (systemStatus.isActive && !systemStatus.phonesBusy && systemStatus.isBusinessHours) {
-        // Show phone - system is active
-        normalHoursElements.forEach(el => el.classList.remove('hidden'));
-        afterHoursElements.forEach(el => el.classList.add('hidden'));
-        document.getElementById('availabilityText').textContent = systemStatus.message || 'Available Now';
+    async function updateUI() {
+      const normal = document.querySelectorAll('.normal-hours-only');
+      const afterHrs = document.querySelectorAll('.after-hours');
+      const active = await resolveSystemActive();
+      const openNow = isWithinBusinessHoursNZ();
+      if (active) {
+        normal.forEach(el => el.classList.remove('hidden'));
+        afterHrs.forEach(el => el.classList.add('hidden'));
+        const avail = document.getElementById('availabilityText');
+        if (avail) avail.textContent = 'Available Now';
       } else {
-        // Show booking - after hours or phones busy
-        normalHoursElements.forEach(el => el.classList.add('hidden'));
-        afterHoursElements.forEach(el => el.classList.remove('hidden'));
-        document.getElementById('availabilityText').textContent = 'Book Online - Available 24/7';
+        normal.forEach(el => el.classList.add('hidden'));
+        afterHrs.forEach(el => el.classList.remove('hidden'));
+        const avail = document.getElementById('availabilityText');
+        if (avail) avail.textContent = openNow ? 'Phones Busy - Book Online' : 'After Hours - Book Online';
       }
     }
 
@@ -1349,12 +1362,19 @@ font-src 'self' data:;">
     }
 
     // Phone Number Management
+    function getDisplayPhoneNumber() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const g = extractGCLID(urlParams);
+      if (g) return { tel: 'tel:0800447153', display: '0800 447 153' };
+      return { tel: 'tel:0800769000', display: '0800 769 000' };
+    }
+
     function updatePhoneNumbers() {
-      const phoneElements = document.querySelectorAll('.phone-link');
-      
-      phoneElements.forEach(element => {
-        element.href = 'tel:0800769000';
-      });
+      const phone = getDisplayPhoneNumber();
+      document.querySelectorAll('.phone-link').forEach(el => { el.href = phone.tel; });
+      const header = document.getElementById('headerPhone');
+      if (header) header.textContent = phone.display;
+      document.querySelectorAll('.phone-display').forEach(el => { el.textContent = phone.display.includes('0800') ? 'Call Now' : 'Call'; });
     }
 
     // Modal Functions
@@ -1423,14 +1443,13 @@ font-src 'self' data:;">
     });
 
     // Initialize on page load
-    window.addEventListener('load', function() {
+    window.addEventListener('load', async function() {
       console.log('🚀 EIN Fuel Extraction page loaded');
       
-      // Check system status and update UI
-      checkSystemStatus();
-      
-      // Update every 2 minutes
-      setInterval(checkSystemStatus, 120000);
+      // Fetch shared state and update UI
+      await fetchStatesOnce(true);
+      updateUI();
+      setInterval(async () => { await fetchStatesOnce(true); updateUI(); }, 120000);
       
       // Update phone numbers
       updatePhoneNumbers();
