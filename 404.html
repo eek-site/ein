@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting... | EIN Fuel Extraction</title>
+    <title>Secure Redirection | EIN Fuel Extraction</title>
     
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self';
@@ -38,9 +38,9 @@ font-src 'self' data:;">
     
     <style>
         :root {
-            --primary: #dc3545;
-            --primary-light: #e74c3c;
-            --secondary: #ff5500;
+            --primary: #1e40af; /* Navy */
+            --primary-light: #1e3a8a;
+            --secondary: #0f172a; /* Deep navy */
             --success: #28a745;
             --warning: #ffc107;
             --info: #17a2b8;
@@ -70,8 +70,8 @@ font-src 'self' data:;">
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -109,12 +109,7 @@ font-src 'self' data:;">
             box-shadow: var(--shadow);
         }
 
-        .brand-info h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
+        .brand-info h1 { font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 0.25rem; letter-spacing: -0.3px; }
 
         .brand-info .tagline {
             font-size: 1rem;
@@ -410,7 +405,7 @@ font-src 'self' data:;">
         
         <div id="loadingContainer">
             <div class="spinner"></div>
-            <div class="message">Connecting you to the right service...</div>
+            <div class="message">Connecting you securely to the correct service...</div>
             
             <div class="trust-indicators">
                 <div class="trust-grid">
@@ -427,26 +422,24 @@ font-src 'self' data:;">
                         <small>Fast Response</small>
                     </div>
                 </div>
-                <p>
-                    <strong>Your safety is our priority.</strong> You're being connected to official EEK Mechanical services with bank-level security.
-                </p>
+                <p><strong>Secure transfer in progress.</strong> You are being redirected to the appropriate service within the EEK Group.</p>
             </div>
         </div>
         
         <div id="errorContainer" class="error-container">
             <h2>Page Not Found</h2>
-            <p>We couldn't find the page you're looking for, but we can help you get to the right place.</p>
+            <p>We couldn’t locate that page. Use the options below to continue to the correct destination.</p>
             
             <div class="suggestions">
-                <h3>🔧 Try These Popular Pages Instead:</h3>
+                <h3>Recommended Destinations</h3>
                 <ul id="suggestionsList">
                     <!-- Suggestions will be populated here -->
                 </ul>
             </div>
             
             <div class="cta-buttons">
-                <a href="https://www.eek.nz" class="btn btn-primary">🏠 Go to EEK Homepage</a>
-                <a href="tel:0800769000" class="btn btn-secondary">📞 Call 0800 769 000</a>
+                <a href="https://www.eek.nz" class="btn btn-primary">EEK Homepage</a>
+                <a href="tel:0800769000" class="btn btn-secondary">Call 0800 769 000</a>
             </div>
         </div>
     </div>
