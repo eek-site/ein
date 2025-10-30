@@ -975,6 +975,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
   
 
+  
+
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-content">
@@ -1103,65 +1105,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
         <h2>Book Fuel Extraction Service</h2>
         <span class="close" onclick="closeBookingModal()">&times;</span>
       </div>
-      <div class="modal-body">
-        <form id="bookingForm">
-          <div class="form-group">
-            <label for="customerName">Your Name *</label>
-            <input type="text" id="customerName" name="customerName" required>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="customerPhone">Phone Number *</label>
-              <input type="tel" id="customerPhone" name="customerPhone" required>
-            </div>
-            <div class="form-group">
-              <label for="customerEmail">Email Address</label>
-              <input type="email" id="customerEmail" name="customerEmail">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="serviceLocation">Service Location *</label>
-            <input type="text" id="serviceLocation" name="serviceLocation" placeholder="Enter your address, suburb, or region" required>
-          </div>
-
-          <div class="form-group">
-            <label for="vehicleDetails">Vehicle Details *</label>
-            <input type="text" id="vehicleDetails" name="vehicleDetails" placeholder="Year, Make, Model (e.g., 2020 Toyota Corolla)" required>
-          </div>
-
-          <div class="form-group">
-            <label for="fuelType">Wrong Fuel Type *</label>
-            <select id="fuelType" name="fuelType" required>
-              <option value="">Select fuel type</option>
-              <option value="petrol-in-diesel">Petrol in Diesel Vehicle</option>
-              <option value="diesel-in-petrol">Diesel in Petrol Vehicle</option>
-              <option value="unknown">Not Sure</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="urgency">Service Urgency *</label>
-            <select id="urgency" name="urgency" required>
-              <option value="">Select urgency</option>
-              <option value="emergency">Emergency - Within 1 hour</option>
-              <option value="urgent">Urgent - Within 2-4 hours</option>
-              <option value="standard">Standard - Next available slot</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="additionalInfo">Additional Information</label>
-            <textarea id="additionalInfo" name="additionalInfo" rows="3" placeholder="Any additional details about your situation..."></textarea>
-          </div>
-
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <span>Submit Booking Request</span>
-            </button>
-          </div>
-        </form>
+      <div class="modal-body" style="padding:0;">
+        <iframe id="bookingFrame" title="EIN Booking" src="" style="width:100%; height:80vh; border:0;" loading="lazy"></iframe>
       </div>
     </div>
   </div>
@@ -1460,7 +1405,13 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     // Modal Functions
     function openBookingModal() {
-      document.getElementById('bookingModal').classList.add('show');
+      const modal = document.getElementById('bookingModal');
+      const frame = document.getElementById('bookingFrame');
+      const params = new URLSearchParams(window.location.search);
+      const tracking = params.toString();
+      const base = '/book-service/index.html';
+      frame.src = tracking ? `${base}?${tracking}` : base;
+      modal.classList.add('show');
       document.body.style.overflow = 'hidden';
       trackConversion('booking_modal_open', 'Engagement');
     }
