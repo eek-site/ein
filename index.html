@@ -330,10 +330,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       gap: 20px;
     }
 
-    .emergency-icon {
-      font-size: 2.5rem;
-      flex-shrink: 0;
-    }
+    .emergency-icon svg { width:40px; height:40px; fill:#fff; }
 
     .emergency-content h2 {
       font-size: 1.5rem;
@@ -399,11 +396,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
       padding: 20px;
     }
 
-    .trust-icon {
-      font-size: 3rem;
-      margin-bottom: 12px;
-      display: block;
-    }
+    .trust-icon { display:block; margin-bottom:12px; }
+    .trust-icon svg { width:44px; height:44px; fill: var(--primary); display:block; margin: 0 auto; }
 
     .trust-item h4 {
       font-size: 1rem;
@@ -488,11 +482,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
       box-shadow: var(--shadow-md);
     }
 
-    .process-icon {
-      font-size: 4rem;
-      margin: 24px 0 20px;
-      display: block;
-    }
+    .process-icon { display:block; margin:24px 0 20px; }
+    .process-icon svg { width:56px; height:56px; fill: var(--primary); display:block; margin: 0 auto; }
 
     .process-card h3 {
       font-size: 1.5rem;
@@ -992,7 +983,9 @@ font-src 'self' data: https://fonts.gstatic.com;">
       <p class="hero-subtitle">EIN delivers certified, insured fuel decontamination and system recovery across New Zealand. We contain risk, protect assets, and return vehicles to service with verified procedures and documentation.</p>
       
       <div class="emergency-alert">
-        <div class="emergency-icon">⚠️</div>
+      <div class="emergency-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1 21h22L12 2 1 21zm12-3h-2v2h2v-2zm0-8h-2v6h2V10z"/></svg>
+      </div>
         <div class="emergency-content">
           <h2>Do Not Start The Engine</h2>
           <p>Starting may escalate damage to pumps, injectors, and emissions systems. Contact EIN for controlled extraction and remediation.</p>
@@ -1005,22 +998,30 @@ font-src 'self' data: https://fonts.gstatic.com;">
   <div class="trust-bar">
     <div class="trust-grid">
       <div class="trust-item">
-        <span class="trust-icon">🏆</span>
+        <span class="trust-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3H7v4H4v3a5 5 0 0 0 4 4.9V17H8a2 2 0 0 0-2 2v2h12v-2a2 2 0 0 0-2-2h0v-2.1A5 5 0 0 0 20 10V7h-3V3zm-8 2h6v2H9V5zm9 4a3 3 0 0 1-6 0V9h6v0zM6 9V7h2v2a3 3 0 0 1-2-0z"/></svg>
+        </span>
         <h4>Certified Specialists</h4>
         <p>Competency-assessed personnel operating calibrated, intrinsically safe equipment</p>
       </div>
       <div class="trust-item">
-        <span class="trust-icon">🛡️</span>
+        <span class="trust-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 3v6c0 5-3.4 9.7-7 11-3.6-1.3-7-6-7-11V5l7-3z"/></svg>
+        </span>
         <h4>Comprehensive Cover</h4>
         <p>Professional indemnity and public liability aligned to corporate procurement standards</p>
       </div>
       <div class="trust-item">
-        <span class="trust-icon">⚡</span>
+        <span class="trust-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h7v8l11-14h-8l0-6z"/></svg>
+        </span>
         <h4>Rapid Mobilisation</h4>
         <p>Priority dispatch with ETA confirmation and continuous status updates</p>
       </div>
       <div class="trust-item">
-        <span class="trust-icon">🇳🇿</span>
+        <span class="trust-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H13l-3 4-1-4H4V4z"/></svg>
+        </span>
         <h4>Nationwide Coverage</h4>
         <p>24/7 availability across NZ with centralised coordination and audit trail</p>
       </div>
@@ -1038,21 +1039,21 @@ font-src 'self' data: https://fonts.gstatic.com;">
         <div class="process-grid">
           <div class="process-card">
             <div class="process-number">1</div>
-            <span class="process-icon">⛽</span>
+            <span class="process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3H6a2 2 0 0 0-2 2v14h10V5h2v4l2 2v8h2v-8l-2-2V5a2 2 0 0 0-2-2zM8 7h4v2H8V7z"/></svg></span>
             <h3>Extract</h3>
             <p>Securely remove contaminants from tank and lines using anti-static equipment and closed-loop recovery.</p>
           </div>
 
           <div class="process-card">
             <div class="process-number">2</div>
-            <span class="process-icon">🔍</span>
+            <span class="process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 1 0 14 15.5l.27.28v.79L20 21.5 21.5 20l-5.5-5.5zM10 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg></span>
             <h3>Inspect</h3>
             <p>Assess components for exposure and wear; document findings for insurers and fleet managers.</p>
           </div>
 
           <div class="process-card">
             <div class="process-number">3</div>
-            <span class="process-icon">🛡️</span>
+            <span class="process-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 3v6c0 5-3.4 9.7-7 11-3.6-1.3-7-6-7-11V5l7-3z"/></svg></span>
             <h3>Neutralise</h3>
             <p>Flush, condition, and verify system performance; provide completion record and advisory.</p>
           </div>
