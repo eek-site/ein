@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.ein.nz" />
   <meta property="og:site_name" content="EIN Fuel Extraction" />
-  <meta name="theme-color" content="#ff5500">
+  <meta name="theme-color" content="#0D1B2A">
   <meta name="format-detection" content="telephone=no">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
@@ -157,7 +157,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.7;
-      color: var(--dark-text);
+      color: var(--dark);
       background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -594,13 +594,13 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .btn-primary {
       background: var(--primary);
       color: var(--white);
-      box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+      box-shadow: 0 4px 15px rgba(13, 27, 42, 0.35);
     }
 
     .btn-primary:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.5);
+      box-shadow: 0 8px 25px rgba(13, 27, 42, 0.45);
     }
 
     .btn-secondary {
@@ -653,7 +653,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .sticky-call:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(220, 53, 69, 0.4);
+      box-shadow: 0 12px 40px rgba(13, 27, 42, 0.35);
     }
 
     .sticky-call.after-hours {
@@ -959,26 +959,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
     <p id="statusBannerText">Our phone lines are closed. Please book online and we will confirm the next available slot.</p>
   </div>
 
-  <!-- Footer (Forman Pacific) -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Forman Pacific. EIN Fuel Extraction is a division of Forman Pacific. All rights reserved.</p>
-      <p style="margin-top: 8px; font-size: 0.875rem;">Company No: 9365185 | NZBN: 9429053064165</p>
-      <div class="footer-links">
-        <a href="https://www.formanpacific.com" target="_blank" rel="noopener">Forman Pacific</a>
-        <a href="https://www.formanpacific.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
-        <a href="https://www.formanpacific.com/terms" target="_blank" rel="noopener">Terms of Service</a>
-        <a href="#" id="openForpacModal">About Forman Pacific</a>
-      </div>
-    </div>
-  </footer>
-
-  
-
-  
-
-  
-
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-content">
@@ -1072,13 +1052,13 @@ font-src 'self' data: https://fonts.gstatic.com;">
           
           <div class="cta-buttons">
             <a href="tel:0800769000" class="btn btn-primary phone-link normal-hours-only" onclick="trackConversion('fuel_drain_call', 'Contact')" id="mainCallButton">
-              <span>📞 Call Now - Emergency Service</span>
+              <span>Call Now – Emergency Service</span>
             </a>
             <button class="btn btn-secondary normal-hours-only" onclick="openBookingModal(); trackConversion('booking_click', 'Engagement')" id="bookingButton">
-              <span>📅 Book Online</span>
+              <span>Book Online</span>
             </button>
             <button class="btn btn-secondary after-hours hidden" onclick="openBookingModal(); trackConversion('booking_click', 'Engagement')" id="afterHoursBookingButton">
-              <span>📅 Book Online - Available 24/7</span>
+              <span>Book Online – Available 24/7</span>
             </button>
           </div>
 
@@ -1091,11 +1071,9 @@ font-src 'self' data: https://fonts.gstatic.com;">
   <!-- Sticky CTA -->
   <div class="sticky-cta">
     <a href="tel:0800769000" class="sticky-call normal-hours-only phone-link" onclick="trackConversion('sticky_call', 'Contact')" id="stickyCallButton">
-      <span>📞</span>
       <span class="phone-display">Call Now</span>
     </a>
     <a href="#booking" class="sticky-call after-hours hidden" id="stickyClosedButton" onclick="openBookingModal(); trackConversion('sticky_booking', 'Engagement')">
-      <span>📅</span>
       <span>Book Online</span>
     </a>
   </div>
@@ -1132,7 +1110,19 @@ font-src 'self' data: https://fonts.gstatic.com;">
     </div>
   </div>
 
-  
+  <!-- Footer (Forman Pacific) -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Forman Pacific. EIN Fuel Extraction is a division of Forman Pacific. All rights reserved.</p>
+      <p style="margin-top: 8px; font-size: 0.875rem;">Company No: 9365185 | NZBN: 9429053064165</p>
+      <div class="footer-links">
+        <a href="https://www.formanpacific.com" target="_blank" rel="noopener">Forman Pacific</a>
+        <a href="https://www.formanpacific.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://www.formanpacific.com/terms" target="_blank" rel="noopener">Terms of Service</a>
+        <a href="#" id="openForpacModal">About Forman Pacific</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Structured data for corporate trust and NZ context -->
   <script type="application/ld+json">
@@ -1473,50 +1463,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
     }
 
-    // Booking Form Submission
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formData = new FormData(this);
-      const bookingData = {
-        customerName: formData.get('customerName'),
-        customerPhone: formData.get('customerPhone'),
-        customerEmail: formData.get('customerEmail'),
-        serviceLocation: formData.get('serviceLocation'),
-        vehicleDetails: formData.get('vehicleDetails'),
-        fuelType: formData.get('fuelType'),
-        urgency: formData.get('urgency'),
-        additionalInfo: formData.get('additionalInfo'),
-        timestamp: new Date().toISOString(),
-        sessionId: getOrCreateSessionId(),
-        gclid: getAndStoreGCLID(),
-        service: 'fuel_extraction',
-        serviceCode: 'FUEL',
-        serviceTitle: 'Wrong Fuel Rescue'
-      };
-
-      // Track conversion
-      trackConversion('booking_submit', 'Booking');
-
-      // Submit to API
-      fetch(`${API_ENDPOINT}/api/eek/bookings`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bookingData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert('Booking request submitted successfully! We will contact you shortly.');
-        closeBookingModal();
-        this.reset();
-      })
-      .catch(error => {
-        console.error('Booking error:', error);
-        alert('There was an error submitting your booking. Please try calling us directly at 0800 769 000.');
-      });
-    });
+    // Booking form submission handled inside injected booking app
 
     // Initialize on page load
     window.addEventListener('load', async function() {
