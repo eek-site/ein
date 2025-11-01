@@ -188,7 +188,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .header-content {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 24px 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -204,21 +204,26 @@ font-src 'self' data: https://fonts.gstatic.com;">
       gap: 16px;
       width: 100%;
       transition: var(--transition);
+      padding: 0;
     }
 
     .logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      object-fit: cover;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: 200px;
+      border-radius: 0;
+      box-shadow: none;
+      object-fit: contain;
       flex-shrink: 0;
       transition: var(--transition);
+      padding: 0;
     }
 
     .brand-info {
       text-align: center;
       transition: var(--transition);
+      display: none;
     }
 
     .brand-info h1 {
@@ -285,12 +290,22 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .header.shrunk .logo {
       width: 48px;
       height: 48px;
+      max-height: 48px;
       border-radius: 8px;
       box-shadow: var(--shadow-sm);
+      padding: 0;
+      aspect-ratio: 1;
     }
 
     .header.shrunk .logo-section {
       gap: 12px;
+      width: auto;
+      justify-content: flex-start;
+    }
+
+    .header.shrunk .brand-info {
+      display: block;
+      text-align: left;
     }
 
     .header.shrunk .brand-info h1 {
@@ -968,14 +983,24 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
 
       .logo {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: auto;
+        max-width: 100%;
+        max-height: 200px;
+        aspect-ratio: auto;
         border-radius: 16px;
         box-shadow: var(--shadow-lg);
+        padding: 0;
+        object-fit: contain;
+      }
+
+      .header-content {
+        padding: 32px clamp(16px, var(--safe-margin), 15vw);
       }
 
       .brand-info {
         text-align: left;
+        display: none;
       }
 
       .brand-info h1 {
@@ -1014,11 +1039,18 @@ font-src 'self' data: https://fonts.gstatic.com;">
       .header.shrunk .logo {
         width: 64px;
         height: 64px;
+        max-height: 64px;
         border-radius: 10px;
+        aspect-ratio: 1;
+        box-shadow: var(--shadow-sm);
       }
 
       .header.shrunk .logo-section {
         gap: 16px;
+      }
+
+      .header.shrunk .brand-info {
+        display: block;
       }
 
       .header.shrunk .brand-info h1 {
