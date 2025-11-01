@@ -240,6 +240,15 @@ font-src 'self' data: https://fonts.gstatic.com;">
       display: none;
     }
 
+    .brand-info .parent-brand {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      font-weight: 400;
+      line-height: 1.4;
+      margin-top: 4px;
+      opacity: 0.8;
+    }
+
     .contact-info {
       text-align: center;
       width: 100%;
@@ -287,6 +296,11 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .header.shrunk .brand-info h1 {
       font-size: 1.125rem;
       margin-bottom: 2px;
+    }
+
+    .header.shrunk .brand-info .parent-brand {
+      font-size: 0.6875rem;
+      margin-top: 2px;
     }
 
     .header.shrunk .contact-info {
@@ -895,25 +909,19 @@ font-src 'self' data: https://fonts.gstatic.com;">
     }
 
     .footer-links-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 24px;
       text-align: center;
-    }
-
-    .footer-links-column h4 {
-      font-size: 0.875rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      opacity: 0.9;
+      margin-top: 24px;
     }
 
     .footer-links {
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
     }
 
     .footer-links a {
@@ -979,6 +987,11 @@ font-src 'self' data: https://fonts.gstatic.com;">
         font-size: 0.9375rem;
       }
 
+      .brand-info .parent-brand {
+        font-size: 0.8125rem;
+        margin-top: 6px;
+      }
+
       .contact-info {
         text-align: right;
         align-items: flex-end;
@@ -1016,6 +1029,11 @@ font-src 'self' data: https://fonts.gstatic.com;">
         font-size: 0.8125rem;
       }
 
+      .header.shrunk .brand-info .parent-brand {
+        font-size: 0.75rem;
+        margin-top: 4px;
+      }
+
       .header.shrunk .contact-info {
         opacity: 1;
         max-height: none;
@@ -1026,22 +1044,16 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
 
       .footer-grid {
-        grid-template-columns: 2fr 3fr;
-        gap: 48px;
-        align-items: start;
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
 
       .footer-brand {
-        text-align: left;
+        text-align: center;
       }
 
       .footer-links-section {
-        grid-template-columns: repeat(2, 1fr);
-        text-align: left;
-      }
-
-      .footer-links-column {
-        text-align: left;
+        justify-content: center;
       }
     }
 
@@ -1152,6 +1164,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
         <div class="brand-info">
           <h1>EIN Fuel Extraction</h1>
           <p class="tagline">Extract, Inspect, Neutralize</p>
+          <p class="parent-brand">EIN is a brand of Forman Pacific</p>
         </div>
       </div>
       <div class="contact-info">
@@ -1328,20 +1341,10 @@ font-src 'self' data: https://fonts.gstatic.com;">
         </div>
         
         <div class="footer-links-section">
-          <div class="footer-links-column">
-            <h4>Company</h4>
-            <div class="footer-links">
-              <a href="https://www.formanpacific.com" target="_blank" rel="noopener">Forman Pacific</a>
-              <a href="#" id="openForpacModal">About Forman Pacific</a>
-            </div>
-          </div>
-          
-          <div class="footer-links-column">
-            <h4>Legal</h4>
-            <div class="footer-links">
-              <a href="https://www.formanpacific.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
-              <a href="https://www.formanpacific.com/terms" target="_blank" rel="noopener">Terms of Service</a>
-            </div>
+          <div class="footer-links">
+            <a href="#" id="openForpacModal">About</a>
+            <a href="https://www.formanpacific.com/privacy" target="_blank" rel="noopener">Privacy</a>
+            <a href="https://www.formanpacific.com/terms" target="_blank" rel="noopener">Terms</a>
           </div>
         </div>
       </div>
