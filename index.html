@@ -174,7 +174,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       padding-right: clamp(16px, var(--safe-margin), 15vw);
     }
 
-    /* Header - Mobile-First Professional Design */
+    /* Header - Mobile-First with Large Logo */
     .header {
       background: var(--white);
       box-shadow: var(--shadow-sm);
@@ -182,52 +182,58 @@ font-src 'self' data: https://fonts.gstatic.com;">
       top: 0;
       z-index: 1000;
       border-bottom: 3px solid var(--primary);
+      transition: var(--transition);
     }
 
     .header-content {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 12px 16px;
+      padding: 24px 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
+      transition: var(--transition);
     }
 
     .logo-section {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 16px;
       width: 100%;
+      transition: var(--transition);
     }
 
     .logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      box-shadow: var(--shadow-sm);
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
       object-fit: cover;
       flex-shrink: 0;
+      transition: var(--transition);
     }
 
     .brand-info {
       text-align: center;
+      transition: var(--transition);
     }
 
     .brand-info h1 {
-      font-size: 1.125rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--dark);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
       letter-spacing: -0.3px;
       line-height: 1.2;
       text-transform: uppercase;
+      transition: var(--transition);
     }
 
     .brand-info .tagline {
-      font-size: 0.6875rem;
+      font-size: 0.875rem;
       color: var(--gray-600);
       font-weight: 500;
       line-height: 1.3;
@@ -240,17 +246,58 @@ font-src 'self' data: https://fonts.gstatic.com;">
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      transition: var(--transition);
+      opacity: 1;
+      max-height: 100px;
+      overflow: hidden;
     }
 
     .phone-number {
-      font-size: 1.25rem;
+      font-size: 1.375rem;
       font-weight: 700;
       color: var(--primary);
       text-decoration: none;
       display: block;
       transition: var(--transition);
       white-space: nowrap;
+    }
+
+    /* Shrunk Header State (After Scroll) */
+    .header.shrunk {
+      border-bottom-width: 2px;
+    }
+
+    .header.shrunk .header-content {
+      padding: 12px 16px;
+      gap: 12px;
+    }
+
+    .header.shrunk .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header.shrunk .logo-section {
+      gap: 12px;
+    }
+
+    .header.shrunk .brand-info h1 {
+      font-size: 1.125rem;
+      margin-bottom: 2px;
+    }
+
+    .header.shrunk .contact-info {
+      opacity: 0;
+      max-height: 0;
+      gap: 4px;
+      margin: 0;
+    }
+
+    .header.shrunk .phone-number {
+      font-size: 1.125rem;
     }
 
     .phone-number:hover {
@@ -901,19 +948,22 @@ font-src 'self' data: https://fonts.gstatic.com;">
       .header-content {
         flex-direction: row;
         justify-content: space-between;
-        padding: 16px clamp(16px, var(--safe-margin), 15vw);
-        gap: 24px;
+        padding: 32px clamp(16px, var(--safe-margin), 15vw);
+        gap: 32px;
       }
 
       .logo-section {
         justify-content: flex-start;
         width: auto;
         flex: 0 1 auto;
+        gap: 20px;
       }
 
       .logo {
-        width: 56px;
-        height: 56px;
+        width: 120px;
+        height: 120px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-lg);
       }
 
       .brand-info {
@@ -921,12 +971,12 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
 
       .brand-info h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .brand-info .tagline {
         display: block;
-        font-size: 0.8125rem;
+        font-size: 0.9375rem;
       }
 
       .contact-info {
@@ -934,9 +984,44 @@ font-src 'self' data: https://fonts.gstatic.com;">
         align-items: flex-end;
         width: auto;
         flex: 0 1 auto;
+        opacity: 1;
+        max-height: none;
       }
 
       .phone-number {
+        font-size: 1.75rem;
+      }
+
+      /* Desktop Shrunk State */
+      .header.shrunk .header-content {
+        padding: 16px clamp(16px, var(--safe-margin), 15vw);
+        gap: 24px;
+      }
+
+      .header.shrunk .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 10px;
+      }
+
+      .header.shrunk .logo-section {
+        gap: 16px;
+      }
+
+      .header.shrunk .brand-info h1 {
+        font-size: 1.5rem;
+      }
+
+      .header.shrunk .brand-info .tagline {
+        font-size: 0.8125rem;
+      }
+
+      .header.shrunk .contact-info {
+        opacity: 1;
+        max-height: none;
+      }
+
+      .header.shrunk .phone-number {
         font-size: 1.5rem;
       }
 
@@ -1634,6 +1719,33 @@ font-src 'self' data: https://fonts.gstatic.com;">
         openForpac.addEventListener('click', function(e){ e.preventDefault(); openForpacModal(); });
       }
     });
+
+    // Header scroll shrink effect - Mobile-first
+    (function() {
+      const header = document.querySelector('.header');
+      if (!header) return;
+      
+      let lastScrollTop = 0;
+      const scrollThreshold = 100; // Pixels to scroll before shrinking
+      
+      function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > scrollThreshold) {
+          header.classList.add('shrunk');
+        } else {
+          header.classList.remove('shrunk');
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      }
+      
+      // Use passive listener for better performance
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      
+      // Check initial scroll position (in case user reloads mid-page)
+      handleScroll();
+    })();
   </script>
 </body>
 </html>
