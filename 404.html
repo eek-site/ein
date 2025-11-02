@@ -451,12 +451,35 @@ font-src 'self' data:;">
             
             <div class="cta-buttons">
                 <a href="https://www.eek.nz" class="btn btn-primary">EEK Homepage</a>
-                <a href="tel:0800769000" class="btn btn-secondary">Call 0800 769 000</a>
+                <a href="tel:048873331" class="btn btn-secondary phone-link">Call 04 887 3331</a>
             </div>
         </div>
     </div>
 
     <script>
+        // Phone Number Management
+        function extractGCLID(urlParams) {
+            const v = (urlParams.get('gclid') || urlParams.get('gbraid') || urlParams.get('wbraid'));
+            return v && v.trim() ? v : null;
+        }
+
+        function getDisplayPhoneNumber() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const g = extractGCLID(urlParams);
+            if (g) return { tel: 'tel:0800600506', display: '0800 600 506' };
+            return { tel: 'tel:048873331', display: '04 887 3331' };
+        }
+
+        function updatePhoneNumbers() {
+            const phone = getDisplayPhoneNumber();
+            document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+                el.href = phone.tel;
+                if (el.textContent.includes('Call') || el.textContent.includes('0800') || el.textContent.includes('04 ')) {
+                    el.textContent = el.textContent.replace(/\d{3,4}\s?\d{3}\s?\d{3,4}/, phone.display);
+                }
+            });
+        }
+
         // Redirect database - all links now point to EEK site
         const redirectDatabase = {
             // Main pages redirect to EEK
@@ -744,7 +767,7 @@ font-src 'self' data:;">
             const suggestionsList = document.getElementById('suggestionsList');
             const suggestions = [
                 { url: 'https://www.eek.nz/', title: '🏠 EEK Homepage', desc: 'Main EEK Mobile Mechanical website' },
-                { url: 'tel:0800769000', title: '📞 Call 0800 769 000', desc: 'Speak directly with our dispatch team' },
+                { url: 'tel:048873331', title: '📞 Call 04 887 3331', desc: 'Speak directly with our dispatch team' },
                 { url: 'https://www.eek.nz/more-options', title: '📋 More Options', desc: 'Complete directory of all services and forms' },
                 { url: 'https://www.eek.nz/supplier', title: '🤝 Supplier Portal', desc: 'Official supplier partnership portal' },
                 { url: 'https://www.eek.nz/mjuris', title: '⚖️ Legal Authority', desc: 'Legal enforcement and compliance matters' }
@@ -762,6 +785,7 @@ font-src 'self' data:;">
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            updatePhoneNumbers();
             setTimeout(handleRedirect, 800);
         });
     </script>

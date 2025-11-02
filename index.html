@@ -776,7 +776,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       background: #229954;
     }
 
-    /* Modal */
+    /* Modal - Corporate Professional */
     .modal {
       display: none;
       position: fixed;
@@ -785,8 +785,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
+      background: rgba(13, 27, 42, 0.75);
+      backdrop-filter: blur(4px);
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -798,31 +798,32 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     .modal-content {
       background: var(--white);
-      border-radius: var(--border-radius-lg);
+      border-radius: 8px;
       width: 100%;
-      max-width: 600px;
+      max-width: 700px;
       max-height: 90vh;
       overflow-y: auto;
-      box-shadow: var(--shadow-xl);
-      animation: modalSlideIn 0.3s ease;
+      box-shadow: 0 20px 60px rgba(13, 27, 42, 0.3), 0 0 0 1px rgba(13, 27, 42, 0.05);
+      animation: modalSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--gray-200);
     }
 
     @keyframes modalSlideIn {
       from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-20px) scale(0.98);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
     .modal-header {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: var(--white);
-      padding: 32px;
-      border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      background: var(--white);
+      color: var(--dark);
+      padding: 28px 32px;
+      border-bottom: 1px solid var(--gray-200);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -833,32 +834,36 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     .modal-header h2 {
       margin: 0;
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.3px;
     }
 
     .close {
-      color: var(--white);
-      font-size: 2rem;
+      color: var(--gray-600);
+      font-size: 1.75rem;
       font-weight: 300;
       cursor: pointer;
-      opacity: 0.8;
-      width: 40px;
-      height: 40px;
+      opacity: 0.7;
+      width: 36px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
+      border-radius: 4px;
       transition: var(--transition);
+      line-height: 1;
     }
 
     .close:hover {
       opacity: 1;
-      background: rgba(255,255,255,0.2);
+      background: var(--gray-100);
+      color: var(--dark);
     }
 
     .modal-body {
-      padding: 40px;
+      padding: 32px;
     }
 
     .form-group {
@@ -890,7 +895,76 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .form-group select:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.1);
+      box-shadow: 0 0 0 3px rgba(13, 27, 42, 0.08);
+      background: var(--white);
+    }
+
+    .form-group input:hover,
+    .form-group textarea:hover,
+    .form-group select:hover {
+      border-color: var(--gray-400);
+    }
+
+    .form-group button,
+    .form-group .btn-submit {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 14px 28px;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .form-group button:hover,
+    .form-group .btn-submit:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
+    }
+
+    .form-group button:active,
+    .form-group .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .booking-info {
+      background: var(--gray-50);
+      border-left: 3px solid var(--primary);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin-bottom: 24px;
+    }
+
+    .booking-info h3 {
+      color: var(--dark);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .booking-info p {
+      color: var(--gray-700);
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    .booking-info ul {
+      margin: 12px 0 0 0;
+      padding-left: 20px;
+      color: var(--gray-700);
+      font-size: 0.9375rem;
+    }
+
+    .booking-info li {
+      margin: 6px 0;
     }
 
     .form-row {
@@ -1182,6 +1256,22 @@ font-src 'self' data: https://fonts.gstatic.com;">
         padding: 24px;
       }
 
+      .modal-header {
+        padding: 20px 24px;
+      }
+
+      .modal-header h2 {
+        font-size: 1.25rem;
+      }
+
+      .booking-info {
+        padding: 16px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
       .trust-grid {
         grid-template-columns: 1fr;
       }
@@ -1369,11 +1459,60 @@ font-src 'self' data: https://fonts.gstatic.com;">
   <div id="bookingModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Book Fuel Extraction Service</h2>
+        <h2>Request Service</h2>
         <span class="close" onclick="closeBookingModal()">&times;</span>
       </div>
-      <div class="modal-body" style="padding:0;">
-        <div id="bookingApp" style="max-height:80vh; overflow:auto;"></div>
+      <div class="modal-body">
+        <div class="booking-info">
+          <h3>Service Request</h3>
+          <p>Complete the form below to request emergency wrong fuel recovery. Our dispatch team will confirm allocation and provide an ETA within minutes.</p>
+          <ul>
+            <li>24/7 nationwide coverage</li>
+            <li>Certified, insured specialists</li>
+            <li>Documented completion records</li>
+          </ul>
+        </div>
+
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+          <div class="form-group">
+            <label for="customerName">Full Name *</label>
+            <input type="text" id="customerName" name="name" required placeholder="Enter your full name">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="customerPhone">Phone Number *</label>
+              <input type="tel" id="customerPhone" name="phone" required placeholder="021 234 5678">
+            </div>
+            <div class="form-group">
+              <label for="customerEmail">Email Address *</label>
+              <input type="email" id="customerEmail" name="email" required placeholder="your.email@example.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceLocation">Service Location *</label>
+            <input type="text" id="serviceLocation" name="location" required placeholder="Street address or location description">
+          </div>
+
+          <div class="form-group">
+            <label for="vehicleDetails">Vehicle Details</label>
+            <input type="text" id="vehicleDetails" name="vehicle" placeholder="Registration, make, model (e.g. ABC123, Toyota Hilux)">
+          </div>
+
+          <div class="form-group">
+            <label for="serviceDetails">Service Details</label>
+            <textarea id="serviceDetails" name="details" rows="4" placeholder="Describe the incident (e.g. Petrol in diesel, approximate amount, vehicle status)"></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit">Submit Request</button>
+          </div>
+
+          <p style="font-size: 0.875rem; color: var(--gray-600); text-align: center; margin-top: 16px;">
+            For immediate assistance, call <a href="tel:048873331" class="phone-link" id="modalPhoneLink" style="color: var(--primary); text-decoration: none; font-weight: 600;">04 887 3331</a>
+          </p>
+        </form>
       </div>
     </div>
   </div>
@@ -1686,56 +1825,66 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     function updatePhoneNumbers() {
       const phone = getDisplayPhoneNumber();
-      document.querySelectorAll('.phone-link').forEach(el => { el.href = phone.tel; });
+      document.querySelectorAll('.phone-link').forEach(el => { 
+        el.href = phone.tel;
+        if (el.textContent.match(/\d{3,4}\s?\d{3}\s?\d{3,4}/)) {
+          el.textContent = el.textContent.replace(/\d{3,4}\s?\d{3}\s?\d{3,4}/, phone.display);
+        }
+      });
       const header = document.getElementById('headerPhone');
       if (header) header.textContent = phone.display;
       document.querySelectorAll('.phone-display').forEach(el => { el.textContent = phone.display.includes('0800') ? 'Call Now' : 'Call'; });
     }
 
     // Modal Functions
-    let bookingAppLoaded = false;
-    async function openBookingModal() {
+    function openBookingModal() {
       const modal = document.getElementById('bookingModal');
-      const container = document.getElementById('bookingApp');
-      if (!bookingAppLoaded) {
-        try {
-          const resp = await fetch('/book-service/index.html', { cache: 'no-store' });
-          const html = await resp.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          // Inject styles
-          doc.querySelectorAll('style').forEach(styleEl => {
-            const s = document.createElement('style');
-            s.textContent = styleEl.textContent;
-            document.head.appendChild(s);
-          });
-          // Inject content
-          const bodyContent = doc.body.innerHTML;
-          container.innerHTML = bodyContent;
-          // Execute inline scripts
-          doc.querySelectorAll('script').forEach(scr => {
-            const s = document.createElement('script');
-            if (scr.src) {
-              s.src = scr.src;
-            } else {
-              s.textContent = scr.textContent;
-            }
-            document.body.appendChild(s);
-          });
-          bookingAppLoaded = true;
-        } catch (e) {
-          console.error('Failed loading booking app:', e);
-          container.innerHTML = '<div style="padding:24px;">Unable to load booking form. Please try again or call 04 887 3331.</div>';
-        }
-      }
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
       trackConversion('booking_modal_open', 'Engagement');
+      
+      // Update phone number in form
+      updatePhoneNumbers();
     }
 
     function closeBookingModal() {
-      document.getElementById('bookingModal').classList.remove('show');
+      const modal = document.getElementById('bookingModal');
+      modal.classList.remove('show');
       document.body.style.overflow = '';
+    }
+
+    // Booking Form Handler
+    function handleBookingSubmit(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Update phone number before submission
+      const phone = getDisplayPhoneNumber();
+      
+      // Build booking data
+      const bookingData = {
+        ...data,
+        phone: data.phone || phone.display,
+        timestamp: new Date().toISOString(),
+        source: 'ein_booking_form'
+      };
+      
+      // Store in sessionStorage for thanks page
+      try {
+        sessionStorage.setItem('eekBookingData', JSON.stringify(bookingData));
+        localStorage.setItem('eekBookingData', JSON.stringify(bookingData));
+      } catch (e) {
+        console.warn('Could not store booking data:', e);
+      }
+      
+      // Redirect to thanks page with data
+      const params = new URLSearchParams(bookingData);
+      window.location.href = '/thanks/?' + params.toString();
+      
+      trackConversion('booking_submit', 'Engagement');
     }
 
     // Forman Pacific Modal Controls

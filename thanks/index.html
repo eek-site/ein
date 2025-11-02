@@ -154,7 +154,7 @@
           <h3>📞 Need Help?</h3>
           <p>If you need assistance with the WINZ process or haven't received your quote</p>
           <div class="contact-buttons">
-            <a href="tel:0800769000" class="btn btn-winz" onclick="trackCall('winz_quote_help')">📞 Call Eek: 0800 769 000</a>
+            <a href="tel:048873331" class="btn btn-winz phone-link" onclick="trackCall('winz_quote_help')">📞 Call Eek: 04 887 3331</a>
             <a href="tel:0800559009" class="btn btn-primary" onclick="trackCall('winz_help')">📞 Call WINZ: 0800 559 009</a>
           </div>
         </div>
@@ -182,7 +182,7 @@
           <h3>📞 Need Immediate Assistance?</h3>
           <p>Our dispatch team is standing by if you need to update your location or have urgent questions</p>
           <div class="contact-buttons">
-            <a href="tel:0800769000" class="btn btn-primary" onclick="trackCall('thanks_page_call')">📞 Call 0800 769 000</a>
+            <a href="tel:048873331" class="btn btn-primary phone-link" onclick="trackCall('thanks_page_call')">📞 Call 04 887 3331</a>
           </div>
         </div>
       </div>
@@ -209,6 +209,29 @@
   </div>
 
   <script>
+    // Phone Number Management
+    function extractGCLID(urlParams) {
+        const v = (urlParams.get('gclid') || urlParams.get('gbraid') || urlParams.get('wbraid'));
+        return v && v.trim() ? v : null;
+    }
+
+    function getDisplayPhoneNumber() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const g = extractGCLID(urlParams);
+        if (g) return { tel: 'tel:0800600506', display: '0800 600 506' };
+        return { tel: 'tel:048873331', display: '04 887 3331' };
+    }
+
+    function updatePhoneNumbers() {
+        const phone = getDisplayPhoneNumber();
+        document.querySelectorAll('.phone-link').forEach(el => {
+            el.href = phone.tel;
+            if (el.textContent.includes('Call')) {
+                el.textContent = el.textContent.replace(/\d{3,4}\s?\d{3}\s?\d{3,4}/, phone.display);
+            }
+        });
+    }
+
     // === INITIALIZATION ===
     console.log('🚀 === THANKS PAGE INITIALIZED (Enhanced Data Retention) === 🚀');
 
@@ -707,6 +730,7 @@
 
     // === BOOTSTRAP ===
     window.addEventListener('load', async () => {
+      updatePhoneNumbers();
       const params = new URLSearchParams(window.location.search);
       const bookingId = params.get('bookingId');
 
