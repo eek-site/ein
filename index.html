@@ -23,7 +23,7 @@
 script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.redditstatic.com https://googleads.g.doubleclick.net https://widget.reviewability.com;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://widget.reviewability.com;
 img-src 'self' data: https: https://app.revu.cloud https://widget.reviewability.com;
-connect-src 'self' https://www.google-analytics.com https://www.redditstatic.com https://pixel-config.reddit.com https://conversions-config.reddit.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://www.google.hn https://app.revu.cloud https://widget.reviewability.com https://www.eek.nz https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com;
+connect-src 'self' https://www.google-analytics.com https://www.redditstatic.com https://pixel-config.reddit.com https://conversions-config.reddit.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://www.google.hn https://app.revu.cloud https://widget.reviewability.com https://www.ein.nz https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com;
 frame-src 'self' https://td.doubleclick.net https://www.googletagmanager.com https://app.revu.cloud https://widget.reviewability.com;
 font-src 'self' data: https://fonts.gstatic.com;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -932,41 +932,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
       transform: translateY(0);
     }
 
-    .booking-info {
-      background: var(--gray-50);
-      border-left: 3px solid var(--primary);
-      padding: 20px;
-      border-radius: var(--border-radius);
-      margin-bottom: 24px;
-    }
-
-    .booking-info h3 {
-      color: var(--dark);
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0 0 12px 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .booking-info p {
-      color: var(--gray-700);
-      margin: 0;
-      font-size: 0.9375rem;
-      line-height: 1.6;
-    }
-
-    .booking-info ul {
-      margin: 12px 0 0 0;
-      padding-left: 20px;
-      color: var(--gray-700);
-      font-size: 0.9375rem;
-    }
-
-    .booking-info li {
-      margin: 6px 0;
-    }
-
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1264,10 +1229,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
         font-size: 1.25rem;
       }
 
-      .booking-info {
-        padding: 16px;
-      }
-
       .form-row {
         grid-template-columns: 1fr;
       }
@@ -1333,7 +1294,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
   <!-- Corporate Status Banner -->
   <div id="statusBanner" class="status-banner" role="status" aria-live="polite" style="display:none;">
     <h3 id="statusBannerTitle">Currently Closed</h3>
-    <p id="statusBannerText">Our phone lines are closed. Please book online and we will confirm the next available slot.</p>
+    <p id="statusBannerText">Our phone lines are currently closed. Please call back during business hours.</p>
   </div>
 
   <!-- Hero Section -->
@@ -1431,12 +1392,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
             <a href="tel:048873331" class="btn btn-primary phone-link normal-hours-only" onclick="trackConversion('fuel_drain_call', 'Contact')" id="mainCallButton">
               <span>Call Now – Emergency Service</span>
             </a>
-            <button class="btn btn-secondary normal-hours-only" onclick="openBookingModal(); trackConversion('booking_click', 'Engagement')" id="bookingButton">
-              <span>Book Online</span>
-            </button>
-            <button class="btn btn-secondary after-hours hidden" onclick="openBookingModal(); trackConversion('booking_click', 'Engagement')" id="afterHoursBookingButton">
-              <span>Book Online – Available 24/7</span>
-            </button>
           </div>
 
           <p style="opacity: 0.8; font-size: 0.9375rem;">24/7 NZ Coverage • Insured Service • Certified Personnel • Documented Completion</p>
@@ -1450,71 +1405,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
     <a href="tel:048873331" class="sticky-call normal-hours-only phone-link" onclick="trackConversion('sticky_call', 'Contact')" id="stickyCallButton">
       <span class="phone-display">Call Now</span>
     </a>
-    <a href="#booking" class="sticky-call after-hours hidden" id="stickyClosedButton" onclick="openBookingModal(); trackConversion('sticky_booking', 'Engagement')">
-      <span>Book Online</span>
-    </a>
-  </div>
-
-  <!-- Booking Modal -->
-  <div id="bookingModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Request Service</h2>
-        <span class="close" onclick="closeBookingModal()">&times;</span>
-      </div>
-      <div class="modal-body">
-        <div class="booking-info">
-          <h3>Service Request</h3>
-          <p>Complete the form below to request emergency wrong fuel recovery. Our dispatch team will confirm allocation and provide an ETA within minutes.</p>
-          <ul>
-            <li>24/7 nationwide coverage</li>
-            <li>Certified, insured specialists</li>
-            <li>Documented completion records</li>
-          </ul>
-        </div>
-
-        <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
-          <div class="form-group">
-            <label for="customerName">Full Name *</label>
-            <input type="text" id="customerName" name="name" required placeholder="Enter your full name">
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="customerPhone">Phone Number *</label>
-              <input type="tel" id="customerPhone" name="phone" required placeholder="021 234 5678">
-            </div>
-            <div class="form-group">
-              <label for="customerEmail">Email Address *</label>
-              <input type="email" id="customerEmail" name="email" required placeholder="your.email@example.com">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="serviceLocation">Service Location *</label>
-            <input type="text" id="serviceLocation" name="location" required placeholder="Street address or location description">
-          </div>
-
-          <div class="form-group">
-            <label for="vehicleDetails">Vehicle Details</label>
-            <input type="text" id="vehicleDetails" name="vehicle" placeholder="Registration, make, model (e.g. ABC123, Toyota Hilux)">
-          </div>
-
-          <div class="form-group">
-            <label for="serviceDetails">Service Details</label>
-            <textarea id="serviceDetails" name="details" rows="4" placeholder="Describe the incident (e.g. Petrol in diesel, approximate amount, vehicle status)"></textarea>
-          </div>
-
-          <div class="form-group">
-            <button type="submit">Submit Request</button>
-          </div>
-
-          <p style="font-size: 0.875rem; color: var(--gray-600); text-align: center; margin-top: 16px;">
-            For immediate assistance, call <a href="tel:048873331" class="phone-link" id="modalPhoneLink" style="color: var(--primary); text-decoration: none; font-weight: 600;">04 887 3331</a>
-          </p>
-        </form>
-      </div>
-    </div>
   </div>
 
   <!-- Forman Pacific Modal -->
@@ -1667,17 +1557,17 @@ font-src 'self' data: https://fonts.gstatic.com;">
         normal.forEach(el => el.classList.add('hidden'));
         afterHrs.forEach(el => el.classList.remove('hidden'));
         const avail = document.getElementById('availabilityText');
-        if (avail) avail.textContent = openNow ? 'Phones Busy - Book Online' : 'After Hours - Book Online';
+        if (avail) avail.textContent = openNow ? 'Phones Busy' : 'After Hours';
         const sb = document.getElementById('statusBanner');
         const title = document.getElementById('statusBannerTitle');
         const text = document.getElementById('statusBannerText');
         if (sb && title && text) {
           if (openNow) {
             title.textContent = 'High Demand – Phone Lines Busy';
-            text.textContent = 'Please book online. We will assign the next available specialist and confirm promptly.';
+            text.textContent = 'Please try calling again shortly. Our team is handling high call volumes.';
           } else {
             title.textContent = "Currently Closed";
-            text.textContent = 'Our phone lines are closed. Please book online and we will confirm the next available slot.';
+            text.textContent = 'Our phone lines are currently closed. Please call back during business hours.';
           }
           sb.style.display = 'block';
         }
@@ -1760,7 +1650,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
         },
         body: JSON.stringify(payload)
       }).catch(error => {
-        console.log('Call tracking error:', error);
+        // Error handling for call tracking
       });
     }
 
@@ -1771,19 +1661,13 @@ font-src 'self' data: https://fonts.gstatic.com;">
       const serviceValues = {
         'fuel_drain_call': 39900,
         'header_call': 25000,
-        'sticky_call': 25000,
-        'booking_submit': 35000,
-        'booking_click': 10000,
-        'sticky_booking': 10000
+        'sticky_call': 25000
       };
 
       const serviceMap = {
         'fuel_drain_call': 'Wrong Fuel Rescue',
         'header_call': 'General Inquiry',
-        'sticky_call': 'General Inquiry',
-        'booking_submit': 'Online Booking',
-        'booking_click': 'Booking Engagement',
-        'sticky_booking': 'Sticky Booking Click'
+        'sticky_call': 'General Inquiry'
       };
 
       const conversionValue = serviceValues[eventAction] || 25000;
@@ -1811,8 +1695,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
       if (eventAction && /call/i.test(eventAction)) {
         sendCallClick(eventAction, eventCategory, null);
       }
-
-      console.log('Conversion tracked:', eventAction, serviceName, conversionValue);
     }
 
     // Phone Number Management
@@ -1836,57 +1718,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
       document.querySelectorAll('.phone-display').forEach(el => { el.textContent = phone.display.includes('0800') ? 'Call Now' : 'Call'; });
     }
 
-    // Modal Functions
-    function openBookingModal() {
-      const modal = document.getElementById('bookingModal');
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden';
-      trackConversion('booking_modal_open', 'Engagement');
-      
-      // Update phone number in form
-      updatePhoneNumbers();
-    }
-
-    function closeBookingModal() {
-      const modal = document.getElementById('bookingModal');
-      modal.classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    // Booking Form Handler
-    function handleBookingSubmit(event) {
-      event.preventDefault();
-      
-      const form = event.target;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      
-      // Update phone number before submission
-      const phone = getDisplayPhoneNumber();
-      
-      // Build booking data
-      const bookingData = {
-        ...data,
-        phone: data.phone || phone.display,
-        timestamp: new Date().toISOString(),
-        source: 'ein_booking_form'
-      };
-      
-      // Store in sessionStorage for thanks page
-      try {
-        sessionStorage.setItem('eekBookingData', JSON.stringify(bookingData));
-        localStorage.setItem('eekBookingData', JSON.stringify(bookingData));
-      } catch (e) {
-        console.warn('Could not store booking data:', e);
-      }
-      
-      // Redirect to thanks page with data
-      const params = new URLSearchParams(bookingData);
-      window.location.href = '/thanks/?' + params.toString();
-      
-      trackConversion('booking_submit', 'Engagement');
-    }
-
     // Forman Pacific Modal Controls
     function openForpacModal(){
       document.getElementById('forpacModal').classList.add('show');
@@ -1899,22 +1730,14 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     // Close modal when clicking outside
     window.onclick = function(event) {
-      const modal = document.getElementById('bookingModal');
       const fpModal = document.getElementById('forpacModal');
-      if (event.target === modal) {
-        closeBookingModal();
-      }
       if (event.target === fpModal) {
         closeForpacModal();
       }
     }
 
-    // Booking form submission handled inside injected booking app
-
     // Initialize on page load
     window.addEventListener('load', async function() {
-      console.log('🚀 EIN Fuel Extraction page loaded');
-      
       // Fetch shared state and update UI
       await fetchStatesOnce(true);
       updateUI();
@@ -1927,9 +1750,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
       trackConversion('page_view', 'Engagement');
       
       const gclid = getAndStoreGCLID();
-      if (gclid) {
-        console.log('GCLID detected:', gclid);
-      }
 
       // Wire up Forman Pacific modal trigger
       const openForpac = document.getElementById('openForpacModal');

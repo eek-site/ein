@@ -1,21 +1,40 @@
 # Ignore system files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-*.log
+Desktop.ini
+$RECYCLE.BIN/
 
-# Ignore IDE files
+# Ignore IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.cursor/
 
 # Ignore temporary files
+*.log
 *.tmp
 *.temp
+*.bak
+*.cache
 
-# Ignore node modules if any
+# Ignore environment and config files (if any)
+.env
+.env.local
+.env.*.local
+
+# Ignore build artifacts (if build process added later)
 node_modules/
-
-# Ignore build files
 dist/
 build/
+out/
+.next/
+
+# Ignore OS-specific files
+*.lnk
