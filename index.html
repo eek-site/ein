@@ -1703,7 +1703,10 @@ font-src 'self' data: https://fonts.gstatic.com;">
       const utm = getUTMParams();
 
       return {
-        site: 'EIN Fuel Extraction',
+        site: {
+          name: 'EIN Fuel Extraction',
+          url: window.location.href
+        },
         siteUrl: 'https://www.ein.nz',
         serviceTitle: 'Wrong Fuel Recovery',
         serviceCode: 'EIN-WFR',
