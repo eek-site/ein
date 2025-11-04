@@ -9,6 +9,22 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-17529704008');
+
+    // Event snippet for Click to call conversion
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17529704008/5VYMCNHyh7obEMic6KZB',
+        'value': 1.0,
+        'currency': 'NZD',
+        'event_callback': callback
+      });
+      return false;
+    }
   </script>
   
   <meta charset="UTF-8" />
@@ -1326,7 +1342,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
         </div>
       </div>
       <div class="contact-info">
-        <a href="tel:048873331" class="phone-number phone-link normal-hours-only" onclick="trackCallClick('header_call'); return true;" id="headerPhone">04 887 3331</a>
+        <a href="tel:048873331" class="phone-number phone-link normal-hours-only" onclick="var tel = this.href; trackCallClick('header_call'); return gtag_report_conversion(tel);" id="headerPhone">04 887 3331</a>
         <p class="availability normal-hours-only" id="availabilityText">Available Now</p>
       </div>
     </div>
@@ -1430,7 +1446,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
           <p class="cta-subtitle">24/7 nationwide mobilisation. Certified personnel, insured operations, documented outcomes. Minimise downtime and prevent secondary damage.</p>
           
           <div class="cta-buttons">
-            <a href="tel:048873331" class="btn btn-primary phone-link normal-hours-only" onclick="trackCallClick('fuel_drain_call'); return true;" id="mainCallButton">
+            <a href="tel:048873331" class="btn btn-primary phone-link normal-hours-only" onclick="var tel = this.href; trackCallClick('fuel_drain_call'); return gtag_report_conversion(tel);" id="mainCallButton">
               <span>Call Now – Emergency Service</span>
             </a>
           </div>
@@ -1443,7 +1459,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
   <!-- Sticky CTA -->
   <div class="sticky-cta">
-    <a href="tel:048873331" class="sticky-call normal-hours-only phone-link" onclick="trackCallClick('sticky_call'); return true;" id="stickyCallButton">
+    <a href="tel:048873331" class="sticky-call normal-hours-only phone-link" onclick="var tel = this.href; trackCallClick('sticky_call'); return gtag_report_conversion(tel);" id="stickyCallButton">
       <span class="phone-display">Call Now</span>
     </a>
   </div>
@@ -1696,12 +1712,60 @@ font-src 'self' data: https://fonts.gstatic.com;">
       return { type: 'Direct', detail: 'Direct visit' };
     }
 
+    // Get location data from browser geolocation or IP
+    let locationData = {
+      country: '',
+      region: '',
+      city: '',
+      coordinates: {
+        latitude: null,
+        longitude: null,
+        accuracy: null
+      }
+    };
+
+    // Try to get geolocation if available
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          locationData.coordinates = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            accuracy: position.coords.accuracy
+          };
+          // Store in sessionStorage for later use
+          sessionStorage.setItem('locationData', JSON.stringify(locationData));
+        },
+        function(error) {
+          // Geolocation failed, will use IP-based location if available
+        },
+        { timeout: 5000, maximumAge: 300000 }
+      );
+    }
+
+    // Try to get location from sessionStorage if previously stored
+    try {
+      const stored = sessionStorage.getItem('locationData');
+      if (stored) {
+        locationData = JSON.parse(stored);
+      }
+    } catch(e) {}
+
     function buildVisitorTrackingPayload(eventType, eventAction, additionalData = {}) {
       const sessionId = getOrCreateSessionId();
       const gclid = getAndStoreGCLID();
       const states = window.eek_states || {};
       const pageSource = getPageSource();
       const utm = getUTMParams();
+
+      // Get stored location or use current
+      let currentLocation = locationData;
+      try {
+        const stored = sessionStorage.getItem('locationData');
+        if (stored) {
+          currentLocation = JSON.parse(stored);
+        }
+      } catch(e) {}
 
       return {
         site: {
@@ -1724,6 +1788,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
         device: {
           platform: /Mobile|Android|iPhone|iPad/.test(navigator.userAgent) ? 'Mobile' : 'Desktop'
         },
+        location: currentLocation,
         journeyData: {
           callAttemptId: additionalData.callAttemptId || null,
           callTimestamp: additionalData.callAttemptId ? new Date().toISOString() : null
@@ -1751,14 +1816,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
         journeyData: { callAttemptId: callAttemptId, callTimestamp: new Date().toISOString() }
       });
       
-      // Google Analytics
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17529704008',
-          'value': eventAction === 'fuel_drain_call' ? 39900 : 25000,
-          'currency': 'NZD'
-        });
-      }
+      // Google Analytics conversion tracking is handled by gtag_report_conversion in onclick handlers
       
       // Reddit Pixel
       try {
