@@ -109,23 +109,28 @@ font-src 'self' data: https://fonts.gstatic.com;">
   
   <style>
     :root {
-      /* EIN Brand */
-      --brand: #0D1B2A;
-      --brand2: #102238;
-      --primary: #0D1B2A;
-      --primary-dark: #0A1521;
-      --primary-light: #1B2C40;
-      --secondary: #FFFFFF;
-      --accent: #0D1B2A;
-      --ok: #10b981;
+      /* Corporate Color Palette */
+      --navy: #1a365d;
+      --navy-dark: #0f2542;
+      --navy-light: #2c5282;
+      --teal: #14b8a6;
+      --teal-dark: #0d9488;
+      --teal-light: #5eead4;
+      --gold: #f59e0b;
+      --gold-dark: #d97706;
+      --gold-light: #fbbf24;
+      --primary: #1a365d;
+      --primary-dark: #0f2542;
+      --primary-light: #2c5282;
+      --accent: #14b8a6;
+      --accent-dark: #0d9488;
+      --accent-light: #5eead4;
+      --highlight: #f59e0b;
       --success: #10b981;
-      --warn: #f59e0b;
       --warning: #f59e0b;
-      --muted: #475569;
-      --purple: #6f42c1;
-      --light: #ffffff;
-      --dark: #0D1B2A;
       --white: #ffffff;
+      --light: #f8fafc;
+      --dark: #1a365d;
       --gray-50: #f8fafc;
       --gray-100: #f1f5f9;
       --gray-200: #e2e8f0;
@@ -141,8 +146,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
       --shadow-md: 0 6px 20px rgba(0,0,0,0.12);
       --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
       --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
-      --border-radius: 10px;
-      --border-radius-lg: 16px;
+      --border-radius: 12px;
+      --border-radius-lg: 20px;
       --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -158,7 +163,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.7;
       color: var(--dark);
-      background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -174,80 +179,75 @@ font-src 'self' data: https://fonts.gstatic.com;">
       padding-right: clamp(16px, var(--safe-margin), 15vw);
     }
 
-    /* Header - Mobile-First with Large Logo */
+    /* Header - Fixed, No Shrink */
     .header {
-      background: var(--white);
-      box-shadow: var(--shadow-sm);
+      background: linear-gradient(180deg, var(--white) 0%, #fafbfc 100%);
+      box-shadow: 0 2px 8px rgba(26, 54, 93, 0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 3px solid var(--primary);
-      transition: var(--transition);
+      border-bottom: 4px solid var(--accent);
     }
 
     .header-content {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 24px 0;
+      padding: 28px clamp(16px, var(--safe-margin), 15vw);
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 16px;
-      transition: var(--transition);
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 24px;
     }
 
     .logo-section {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 16px;
-      width: 100%;
-      transition: var(--transition);
-      padding: 0;
+      justify-content: flex-start;
+      gap: 20px;
+      flex: 0 1 auto;
     }
 
     .logo {
-      width: 100%;
-      max-width: 100%;
+      width: 180px;
       height: auto;
-      max-height: 200px;
-      border-radius: 0;
-      box-shadow: none;
+      max-width: 100%;
+      max-height: 120px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(26, 54, 93, 0.15);
       object-fit: contain;
       flex-shrink: 0;
-      transition: var(--transition);
-      padding: 0;
+      background: var(--white);
+      padding: 8px;
     }
 
     .brand-info {
-      text-align: center;
-      transition: var(--transition);
-      display: none;
+      text-align: left;
+      display: block;
     }
 
     .brand-info h1 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
-      color: var(--dark);
+      color: var(--navy);
       margin-bottom: 4px;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.5px;
       line-height: 1.2;
       text-transform: uppercase;
-      transition: var(--transition);
     }
 
     .brand-info .tagline {
       font-size: 0.875rem;
-      color: var(--gray-600);
-      font-weight: 500;
+      color: var(--accent);
+      font-weight: 600;
       line-height: 1.3;
-      display: none;
+      display: block;
+      margin-bottom: 4px;
     }
 
     .brand-info .parent-brand {
       font-size: 0.75rem;
-      color: var(--gray-500);
+      color: var(--gray-600);
       font-weight: 400;
       line-height: 1.4;
       margin-top: 4px;
@@ -255,96 +255,46 @@ font-src 'self' data: https://fonts.gstatic.com;">
     }
 
     .contact-info {
-      text-align: center;
-      width: 100%;
+      text-align: right;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
-      opacity: 1;
-      max-height: 100px;
-      overflow: hidden;
+      align-items: flex-end;
+      gap: 8px;
+      flex: 0 1 auto;
     }
 
     .phone-number {
-      font-size: 1.375rem;
+      font-size: 1.75rem;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--accent);
       text-decoration: none;
       display: block;
-      transition: var(--transition);
       white-space: nowrap;
-    }
-
-    /* Shrunk Header State (After Scroll) */
-    .header.shrunk {
-      border-bottom-width: 2px;
-    }
-
-    .header.shrunk .header-content {
-      padding: 12px 16px;
-      gap: 12px;
-    }
-
-    .header.shrunk .logo {
-      width: 48px;
-      height: 48px;
-      max-height: 48px;
-      border-radius: 8px;
-      box-shadow: var(--shadow-sm);
-      padding: 0;
-      aspect-ratio: 1;
-    }
-
-    .header.shrunk .logo-section {
-      gap: 12px;
-      width: auto;
-      justify-content: flex-start;
-    }
-
-    .header.shrunk .brand-info {
-      display: block;
-      text-align: left;
-    }
-
-    .header.shrunk .brand-info h1 {
-      font-size: 1.125rem;
-      margin-bottom: 2px;
-    }
-
-    .header.shrunk .brand-info .parent-brand {
-      font-size: 0.6875rem;
-      margin-top: 2px;
-    }
-
-    .header.shrunk .contact-info {
-      opacity: 0;
-      max-height: 0;
-      gap: 4px;
-      margin: 0;
-    }
-
-    .header.shrunk .phone-number {
-      font-size: 1.125rem;
+      transition: var(--transition);
     }
 
     .phone-number:hover {
-      color: var(--primary-dark);
+      color: var(--accent-dark);
+      transform: scale(1.05);
     }
 
     .availability {
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       color: var(--success);
       font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      padding: 4px 12px;
+      background: rgba(16, 185, 129, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
     .availability::before {
       content: "●";
       animation: pulse 2s infinite;
+      color: var(--success);
     }
 
     @keyframes pulse {
@@ -354,9 +304,9 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     /* Hero Section */
     .hero-section {
-      background: linear-gradient(135deg, #0D1B2A 0%, #102238 50%, #0A1521 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 50%, #0a1b2e 100%);
       color: var(--white);
-      padding: clamp(40px, 10vw, 80px) clamp(16px, 4vw, 24px);
+      padding: clamp(60px, 12vw, 100px) clamp(16px, 4vw, 24px);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -369,8 +319,11 @@ font-src 'self' data: https://fonts.gstatic.com;">
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-      opacity: 0.3;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+        url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 1;
     }
 
     .hero-content {
@@ -382,14 +335,17 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     .hero-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.25) 0%, rgba(20, 184, 166, 0.15) 100%);
       backdrop-filter: blur(10px);
-      padding: 8px 20px;
+      padding: 10px 24px;
       border-radius: 50px;
       font-size: 0.875rem;
       font-weight: 600;
       margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 2px solid rgba(20, 184, 166, 0.4);
+      color: var(--teal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .hero-title {
@@ -410,19 +366,20 @@ font-src 'self' data: https://fonts.gstatic.com;">
     }
 
     .emergency-alert {
-      background: rgba(255,255,255,0.15);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
       backdrop-filter: blur(10px);
-      border: 2px solid rgba(255,255,255,0.3);
+      border: 2px solid rgba(245, 158, 11, 0.4);
       border-radius: var(--border-radius-lg);
-      padding: clamp(20px, 3vw, 24px) clamp(20px, 4vw, 32px);
+      padding: clamp(24px, 3vw, 32px) clamp(24px, 4vw, 40px);
       margin: clamp(32px, 5vw, 40px) auto 0;
       max-width: 700px;
       display: flex;
       align-items: flex-start;
       gap: clamp(16px, 2.5vw, 20px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     }
 
-    .emergency-icon svg { width: clamp(36px, 5vw, 40px); height: clamp(36px, 5vw, 40px); fill:#fff; flex-shrink: 0; }
+    .emergency-icon svg { width: clamp(40px, 5vw, 48px); height: clamp(40px, 5vw, 48px); fill: var(--gold); flex-shrink: 0; }
 
     .emergency-content h2 {
       font-size: clamp(1.25rem, 3vw, 1.5rem);
@@ -442,12 +399,12 @@ font-src 'self' data: https://fonts.gstatic.com;">
       position: sticky;
       top: 0;
       z-index: 998;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
       color: var(--white);
       padding: 18px 24px;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      border-bottom: 2px solid rgba(255,255,255,0.1);
+      border-bottom: 3px solid var(--gold);
     }
     .status-banner h3 {
       margin: 0 0 4px 0;
@@ -468,13 +425,13 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     /* Trust Indicators */
     .trust-bar {
-      background: var(--white);
-      padding: clamp(32px, 6vw, 48px) clamp(16px, var(--safe-margin), 15vw);
-      margin: clamp(-30px, -5vw, -40px) auto clamp(40px, 6vw, 60px);
+      background: linear-gradient(180deg, var(--white) 0%, #fafbfc 100%);
+      padding: clamp(40px, 6vw, 56px) clamp(16px, var(--safe-margin), 15vw);
+      margin: clamp(-40px, -6vw, -50px) auto clamp(40px, 6vw, 60px);
       max-width: 1140px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius-lg);
+      box-shadow: 0 8px 32px rgba(26, 54, 93, 0.12);
+      border: 2px solid var(--accent);
       position: relative;
       z-index: 10;
     }
@@ -490,8 +447,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
       padding: 20px;
     }
 
-    .trust-icon { display:block; margin-bottom:12px; }
-    .trust-icon svg { width:44px; height:44px; fill: var(--primary); display:block; margin: 0 auto; }
+    .trust-icon { display:block; margin-bottom:16px; }
+    .trust-icon svg { width:52px; height:52px; fill: var(--accent); display:block; margin: 0 auto; }
 
     .trust-item h4 {
       font-size: 1rem;
@@ -545,42 +502,44 @@ font-src 'self' data: https://fonts.gstatic.com;">
     }
 
     .process-card {
-      background: var(--white);
-      border-radius: var(--border-radius);
-      padding: clamp(32px, 5vw, 40px) clamp(24px, 4vw, 32px);
+      background: linear-gradient(180deg, var(--white) 0%, #fafbfc 100%);
+      border-radius: var(--border-radius-lg);
+      padding: clamp(36px, 5vw, 48px) clamp(28px, 4vw, 36px);
       text-align: center;
       transition: var(--transition);
-      border: 1px solid var(--gray-200);
+      border: 2px solid var(--gray-200);
       position: relative;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 16px rgba(26, 54, 93, 0.08);
     }
 
     .process-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(26, 54, 93, 0.15);
+      border-color: var(--accent);
+      background: linear-gradient(180deg, var(--white) 0%, #f8fafc 100%);
     }
 
     .process-number {
       position: absolute;
-      top: -20px;
+      top: -24px;
       left: 50%;
       transform: translateX(-50%);
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: var(--white);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 4px 16px rgba(20, 184, 166, 0.4);
+      border: 3px solid var(--white);
     }
 
-    .process-icon { display:block; margin:24px 0 20px; }
-    .process-icon svg { width:56px; height:56px; fill: var(--primary); display:block; margin: 0 auto; }
+    .process-icon { display:block; margin:28px 0 24px; }
+    .process-icon svg { width:64px; height:64px; fill: var(--accent); display:block; margin: 0 auto; }
 
     .process-card h3 {
       font-size: 1.5rem;
@@ -598,16 +557,16 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     /* CTA Section */
     .cta-section {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 50%, #0a1b2e 100%);
       color: var(--white);
-      border-radius: var(--border-radius);
-      padding: clamp(40px, 8vw, 60px) clamp(16px, var(--safe-margin), 15vw);
+      border-radius: var(--border-radius-lg);
+      padding: clamp(50px, 8vw, 70px) clamp(16px, var(--safe-margin), 15vw);
       text-align: center;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 12px 40px rgba(26, 54, 93, 0.3);
       margin-bottom: clamp(40px, 8vw, 60px);
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 3px solid var(--accent);
     }
 
     .cta-section::before {
@@ -617,7 +576,9 @@ font-src 'self' data: https://fonts.gstatic.com;">
       right: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(20, 184, 166, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.15) 0%, transparent 50%);
       animation: rotate 20s linear infinite;
     }
 
@@ -690,38 +651,26 @@ font-src 'self' data: https://fonts.gstatic.com;">
     }
 
     .btn-primary {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: var(--white);
-      box-shadow: 0 6px 20px rgba(13, 27, 42, 0.4), 0 2px 8px rgba(13, 27, 42, 0.25);
+      box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4), 0 4px 12px rgba(20, 184, 166, 0.3);
       font-size: 1.125rem;
       font-weight: 700;
-      padding: 22px 32px;
-      min-width: 220px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 40px;
+      min-width: 240px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       position: relative;
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--teal-dark) 100%);
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(13, 27, 42, 0.5), 0 4px 12px rgba(13, 27, 42, 0.3);
-      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 32px rgba(20, 184, 166, 0.5), 0 6px 16px rgba(20, 184, 166, 0.4);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.15);
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.3);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.25);
-      border-color: rgba(255,255,255,0.5);
-      transform: translateY(-3px);
-    }
 
     .btn span {
       position: relative;
@@ -741,40 +690,33 @@ font-src 'self' data: https://fonts.gstatic.com;">
     }
 
     .sticky-call {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: var(--white);
-      padding: 20px 32px;
+      padding: 22px 36px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
       font-size: 1.125rem;
-      box-shadow: 0 8px 24px rgba(13, 27, 42, 0.45), 0 4px 12px rgba(13, 27, 42, 0.3);
+      box-shadow: 0 8px 24px rgba(20, 184, 166, 0.5), 0 4px 12px rgba(20, 184, 166, 0.4);
       transition: var(--transition);
       display: flex;
       align-items: center;
       gap: 10px;
       min-width: 200px;
       justify-content: center;
-      border: 2px solid rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.2);
       text-transform: uppercase;
       letter-spacing: 0.5px;
       position: relative;
     }
 
     .sticky-call:hover {
-      background: var(--primary-dark);
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--teal-dark) 100%);
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(13, 27, 42, 0.5), 0 6px 16px rgba(13, 27, 42, 0.35);
-      border-color: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 12px 40px rgba(20, 184, 166, 0.6), 0 6px 16px rgba(20, 184, 166, 0.5);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
-    .sticky-call.after-hours {
-      background: var(--success);
-    }
-
-    .sticky-call.after-hours:hover {
-      background: #229954;
-    }
 
     /* Modal - Corporate Professional */
     .modal {
@@ -785,7 +727,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(13, 27, 42, 0.75);
+      background: rgba(26, 54, 93, 0.85);
       backdrop-filter: blur(4px);
       align-items: center;
       justify-content: center;
@@ -803,7 +745,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
       max-width: 700px;
       max-height: 90vh;
       overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(13, 27, 42, 0.3), 0 0 0 1px rgba(13, 27, 42, 0.05);
+      box-shadow: 0 20px 60px rgba(26, 54, 93, 0.3), 0 0 0 1px rgba(26, 54, 93, 0.05);
       animation: modalSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       border: 1px solid var(--gray-200);
     }
@@ -894,8 +836,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
     .form-group textarea:focus,
     .form-group select:focus {
       outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(13, 27, 42, 0.08);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
       background: var(--white);
     }
 
@@ -907,7 +849,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     .form-group button,
     .form-group .btn-submit {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: var(--white);
       border: none;
       padding: 14px 28px;
@@ -922,9 +864,9 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     .form-group button:hover,
     .form-group .btn-submit:hover {
-      background: var(--primary-dark);
+      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--teal-dark) 100%);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
+      box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
     }
 
     .form-group button:active,
@@ -940,11 +882,11 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
     /* Footer - Corporate Professional */
     .footer {
-      background: var(--dark);
+      background: linear-gradient(180deg, var(--navy-dark) 0%, #0a1b2e 100%);
       color: var(--white);
       padding: 60px 0 24px;
       margin-top: 80px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 4px solid var(--accent);
     }
 
     .footer-content {
@@ -1031,32 +973,9 @@ font-src 'self' data: https://fonts.gstatic.com;">
         gap: 32px;
       }
 
-      .logo-section {
-        justify-content: flex-start;
-        width: auto;
-        flex: 0 1 auto;
-        gap: 20px;
-      }
-
       .logo {
         width: 200px;
-        height: auto;
-        max-width: 100%;
-        max-height: 200px;
-        aspect-ratio: auto;
-        border-radius: 16px;
-        box-shadow: var(--shadow-lg);
-        padding: 0;
-        object-fit: contain;
-      }
-
-      .header-content {
-        padding: 32px clamp(16px, var(--safe-margin), 15vw);
-      }
-
-      .brand-info {
-        text-align: left;
-        display: none;
+        max-height: 140px;
       }
 
       .brand-info h1 {
@@ -1064,7 +983,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
 
       .brand-info .tagline {
-        display: block;
         font-size: 0.9375rem;
       }
 
@@ -1073,62 +991,8 @@ font-src 'self' data: https://fonts.gstatic.com;">
         margin-top: 6px;
       }
 
-      .contact-info {
-        text-align: right;
-        align-items: flex-end;
-        width: auto;
-        flex: 0 1 auto;
-        opacity: 1;
-        max-height: none;
-      }
-
       .phone-number {
-        font-size: 1.75rem;
-      }
-
-      /* Desktop Shrunk State */
-      .header.shrunk .header-content {
-        padding: 16px clamp(16px, var(--safe-margin), 15vw);
-        gap: 24px;
-      }
-
-      .header.shrunk .logo {
-        width: 64px;
-        height: 64px;
-        max-height: 64px;
-        border-radius: 10px;
-        aspect-ratio: 1;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .header.shrunk .logo-section {
-        gap: 16px;
-      }
-
-      .header.shrunk .brand-info {
-        display: block;
-      }
-
-      .header.shrunk .brand-info h1 {
-        font-size: 1.5rem;
-      }
-
-      .header.shrunk .brand-info .tagline {
-        font-size: 0.8125rem;
-      }
-
-      .header.shrunk .brand-info .parent-brand {
-        font-size: 0.75rem;
-        margin-top: 4px;
-      }
-
-      .header.shrunk .contact-info {
-        opacity: 1;
-        max-height: none;
-      }
-
-      .header.shrunk .phone-number {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
 
       .footer-grid {
@@ -1142,6 +1006,37 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
       .footer-links-section {
         justify-content: center;
+      }
+    }
+
+    /* Mobile Header */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px clamp(16px, var(--safe-margin), 15vw);
+      }
+
+      .logo {
+        width: 160px;
+        max-height: 100px;
+      }
+
+      .brand-info {
+        text-align: center;
+      }
+
+      .brand-info h1 {
+        font-size: 1.5rem;
+      }
+
+      .contact-info {
+        text-align: center;
+        align-items: center;
+      }
+
+      .phone-number {
+        font-size: 1.5rem;
       }
     }
 
@@ -1483,7 +1378,7 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
   <script>
     // === API DECISION MAKING TREE ===
-    // This manages phone/booking display based on system status
+    // This manages phone display based on system status
     
     const API_ENDPOINT = 'https://default61ffc6bcd9ce458b8120d32187c377.0d.environment.api.powerplatform.com';
 
@@ -1543,19 +1438,16 @@ font-src 'self' data: https://fonts.gstatic.com;">
     // Update UI based on system status
     async function updateUI() {
       const normal = document.querySelectorAll('.normal-hours-only');
-      const afterHrs = document.querySelectorAll('.after-hours');
       const active = await resolveSystemActive();
       const openNow = isWithinBusinessHoursNZ();
       if (active) {
         normal.forEach(el => el.classList.remove('hidden'));
-        afterHrs.forEach(el => el.classList.add('hidden'));
         const avail = document.getElementById('availabilityText');
         if (avail) avail.textContent = 'Available Now';
         const sb = document.getElementById('statusBanner');
         if (sb) sb.style.display = 'none';
       } else {
         normal.forEach(el => el.classList.add('hidden'));
-        afterHrs.forEach(el => el.classList.remove('hidden'));
         const avail = document.getElementById('availabilityText');
         if (avail) avail.textContent = openNow ? 'Phones Busy' : 'After Hours';
         const sb = document.getElementById('statusBanner');
@@ -1758,32 +1650,6 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
     });
 
-    // Header scroll shrink effect - Mobile-first
-    (function() {
-      const header = document.querySelector('.header');
-      if (!header) return;
-      
-      let lastScrollTop = 0;
-      const scrollThreshold = 100; // Pixels to scroll before shrinking
-      
-      function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > scrollThreshold) {
-          header.classList.add('shrunk');
-        } else {
-          header.classList.remove('shrunk');
-        }
-        
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      }
-      
-      // Use passive listener for better performance
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      
-      // Check initial scroll position (in case user reloads mid-page)
-      handleScroll();
-    })();
   </script>
 </body>
 </html>
