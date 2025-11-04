@@ -40,7 +40,12 @@ font-src 'self' data: https://fonts.gstatic.com;">
 
   <!-- Reddit Pixel -->
   <script>
-    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+    try {
+      !function(w,d){if(!w.rdt){var p=w.rdt=function(){try{p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)}catch(e){}};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0,t.onerror=function(){};var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+    } catch(e) {
+      // Tracking prevention may block Reddit pixel
+      window.rdt = function() {};
+    }
     
     function getEmailFromForm() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -96,8 +101,14 @@ font-src 'self' data: https://fonts.gstatic.com;">
     if (mobileIds.idfa) initConfig.idfa = mobileIds.idfa;
     if (mobileIds.aaid) initConfig.aaid = mobileIds.aaid;
     
-    rdt('init', 'a2_hf16791nsdhx', Object.keys(initConfig).length > 0 ? initConfig : undefined);
-    rdt('track', 'PageVisit');
+    try {
+      if (typeof rdt !== 'undefined') {
+        rdt('init', 'a2_hf16791nsdhx', Object.keys(initConfig).length > 0 ? initConfig : undefined);
+        rdt('track', 'PageVisit');
+      }
+    } catch(e) {
+      // Tracking prevention may block Reddit pixel storage access
+    }
   </script>
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1746,8 +1757,12 @@ font-src 'self' data: https://fonts.gstatic.com;">
       }
       
       // Reddit Pixel
-      if (typeof rdt !== 'undefined') {
-        rdt('track', 'Purchase', { value: eventAction === 'fuel_drain_call' ? 39900 : 25000, currency: 'NZD' });
+      try {
+        if (typeof rdt !== 'undefined') {
+          rdt('track', 'Purchase', { value: eventAction === 'fuel_drain_call' ? 39900 : 25000, currency: 'NZD' });
+        }
+      } catch(e) {
+        // Tracking prevention may block Reddit pixel storage access
       }
     }
 
